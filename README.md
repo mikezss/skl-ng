@@ -25,7 +25,7 @@
 * install nodejs by yourself  
 * install angular cli by yourself  
 * go get github.com/mikezss/skl-ng  
-* cd %goproject%/github.com/mikezss/skl-ng
+* cd %gopath%/github.com/mikezss/skl-ng
 * npm install  
 
 ## Usage  
