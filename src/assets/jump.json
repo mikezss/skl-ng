@@ -1,0 +1,6 @@
+[
+	{"value":"forward","label":"forward"},
+	{"value":"backward","label":"backward"},
+	{"value":"pause","label":"pause"},
+	{"value":"stop","label":"stop"}
+]

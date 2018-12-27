@@ -1,0 +1,25 @@
+<essence-ng2-print
+  [mode]="'popup'"
+  [popTitle]="'流程打印'"
+  [btnText]="'打印'"
+  [btnClass]="{'btn': true, 'btn-info': true}"
+  [printHTML]="print">
+</essence-ng2-print>
+	<table #print>
+		<tr><td colspan="2" id='PrintBar'><hr size=1></td>
+    </tr>
+		<tr *ngFor="let task1 of taskdata">
+			<td class="td-left" >
+		{{'Flowinstid'|translate}}:{{task1.Flowinstid}}<br>
+		{{'Flowstatus'|translate}}:{{task1.Flowstatus}}<br>
+		{{'Now'|translate}}:{{today | date:'yyyy-MM-dd HH:mm:ss'}}</td>
+			<td class="td-right">
+				<table   cellspacing="2" class="stampTable">
+					<tr><td  ></td><td *ngFor="let task2 of task1.Task">{{task2.Postid}}</td></tr>
+					<tr><td  ></td><td  *ngFor="let task3 of task1.Task "   class="stamp">
+						<img src="/assets/stamp/{{task3.Editor}}.png"></td></tr>
+				</table>
+			</td>
+		</tr>
+	</table>
+

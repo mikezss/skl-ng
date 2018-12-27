@@ -1,0 +1,137 @@
+<nz-card nzNoHovering="true" [nzTitle]="formtitle" [nzExtra]="extra">
+  <ng-template #extra>
+    <ng-container *ngIf="mode=='a' || mode=='e'">
+
+      <nz-button-group>
+        <button *ngFor="let button of buttons" nz-button [nzType]="'primary'" (click)="doAction(button)">
+          <ng-container [ngSwitch]="button">
+            <i *ngSwitchCase="'query'" nz-icon [type]="'search'"  ></i>
+            <i *ngSwitchCase="'reset'"   nz-icon [type]="'reload'" [theme]="'fill'"></i>
+            <i *ngSwitchCase="'pass'"  nz-icon [type]="'next'" [theme]="'fill'"></i>
+            <i *ngSwitchCase="'return'"  nz-icon [type]="'back'" [theme]="'fill'"></i>
+            <i *ngSwitchDefault   nz-icon type="{{button}}" ></i>
+          </ng-container>
+          <ng-container>{{button|translate}}</ng-container>
+        </button>
+      </nz-button-group>
+    </ng-container>
+  </ng-template>
+  <nz-row [nzGutter]="ngutter">
+    <nz-col [nzSpan]="24/ncolcount" *ngFor="let colname of formcolnames">
+      <nz-row [nzGutter]="ngutter">
+        <nz-col [nzSpan]="8">
+          <ng-container *ngIf="!colname.NotDisplayed">
+            <label [attr.for]="colname.Controlname">{{colname.Controlname|translate}}</label>
+          </ng-container>
+        </nz-col>
+        <nz-col [nzSpan]="16">
+          <ng-container *ngIf="mode=='a'">
+            <ng-container [ngSwitch]="colname.Controltype">
+              <button nz-button *ngSwitchCase="'button'" [nzType]="'primary'" (click)="formdataonchange(colname.Controlname)"><ng-container>{{colname.Controlname|translate}}</ng-container></button>
+              <label nz-checkbox *ngSwitchCase="'checkbox'" [(ngModel)]="formdata[colname.Controlname]"
+                     [nzDisabled]="colname.NotEditable?true:false"
+                     (ngModelChange)="formdataonchange(colname.Controlname)"></label>
+              <nz-checkbox-group *ngSwitchCase="'checkboxgroup'" [(ngModel)]="colname.checkboxgroup"
+                                 [nzDisabled]="colname.NotEditable?true:false"
+                                 (ngModelChange)="formdataonchange(colname.Controlname)"></nz-checkbox-group>
+              <nz-radio-group *ngSwitchCase="'radiogroup'" [(ngModel)]="formdata[colname.Controlname]"
+                              (ngModelChange)="formdataonchange(colname.Controlname)"
+                              [nzDisabled]="colname.NotEditable?true:false">
+                            <span *ngFor="let option of colname.radiogroup">
+                                <label nz-radio [nzValue]="option.value">
+                                    <span>{{option.label|translate}}</span>
+                                </label>
+                            </span>
+              </nz-radio-group>
+              <label *ngSwitchCase="'radio'" nz-radio [(ngModel)]="formdata[colname.Controlname]"
+                     [nzDisabled]="colname.NotEditable?true:false"
+                     (ngModelChange)="formdataonchange(colname.Controlname)"></label>
+              <nz-date-picker *ngSwitchCase="'datepicker'" [(ngModel)]="formdata[colname.Controlname]"
+                              [nzPlaceHolder]="'Select date'"
+                              [nzDisabled]="colname.NotEditable?true:false"
+                              (ngModelChange)="formdataonchange(colname.Controlname)"></nz-date-picker>
+              <nz-month-picker   *ngSwitchCase="'monthpicker'" [(ngModel)]="formdata[colname.Controlname]"   (ngModelChange)="formdataonchange(colname.Controlname)" [nzDisabled]="colname.NotEditable?true:false"></nz-month-picker>
+              <nz-year-picker   *ngSwitchCase="'yearpicker'" [(ngModel)]="formdata[colname.Controlname]"   (ngModelChange)="formdataonchange(colname.Controlname)" [nzDisabled]="colname.NotEditable?true:false"></nz-year-picker>
+              <nz-week-picker   *ngSwitchCase="'weekpicker'" [(ngModel)]="formdata[colname.Controlname]"   (ngModelChange)="formdataonchange(colname.Controlname)" [nzDisabled]="colname.NotEditable?true:false"></nz-week-picker>
+
+              <nz-input-number *ngSwitchCase="'number'" [(ngModel)]="formdata[colname.Controlname]"
+                               [nzMin]="colname.minvalue" [nzMax]="colname.maxvalue" [nzStep]="colname.stepvalue"
+                               [nzDisabled]="colname.NotEditable?true:false"
+                               (ngModelChange)="formdataonchange(colname.Controlname)"></nz-input-number>
+              <nz-time-picker *ngSwitchCase="'timepicker'" [(ngModel)]="formdata[colname.Controlname]"
+                              [nzDisabled]="colname.NotEditable?true:false"
+                              (ngModelChange)="formdataonchange(colname.Controlname)"></nz-time-picker>
+              <nz-range-picker *ngSwitchCase="'rangepicker'" [(ngModel)]="formdata[colname.Controlname]"
+                               [nzDisabled]="colname.NotEditable?true:false" [nzShowTime]="{ nzFormat: 'HH:mm' }"
+                               (ngModelChange)="formdataonchange(colname.Controlname)"
+                               [nzFormat]="nzformat" [nzDisabledDate]="disabledDate" [nzDisabledTime]="disabledRangeTime" ></nz-range-picker>
+
+              <nz-upload *ngSwitchCase="'upload'" [(nzFileList)]="colname.fileList" [nzBeforeUpload]="beforeUpload"
+                         [nzFileType]="colname.filetype" [nzMultiple]="colname.ismultiple?colname.ismultiple:false"
+                         [nzSize]="colname.filesize" [nzLimit]="colname.limit?colname.limitfileqty:0">
+                <button nz-button>
+                  <i class="anticon anticon-upload"></i>
+                  <ng-container >{{'Selectfile'|translate}}</ng-container>
+                </button>
+              </nz-upload>
+              <nz-select *ngSwitchCase="'select'" style="width: 100%;" [(ngModel)]="formdata[colname.Controlname]"
+                         [nzPlaceHolder]="'choose option'" nzAllowClear
+                         [nzMode]="outputdefault(colname.nzMode,'default')"
+                         (ngModelChange)="formdataonchange(colname.Controlname)" nzShowSearch
+                         [nzDisabled]="colname.NotEditable?true:false">
+                <nz-option *ngFor="let option of colname.options" [nzLabel]="option.label" [nzValue]="option.value"
+                           [nzDisabled]="option.disabled"></nz-option>
+              </nz-select>
+              <nz-select *ngSwitchCase="'dataselect'" style="width: 100%;" [(ngModel)]="formdata[colname.Controlname]"
+                         [nzPlaceHolder]="'choose option'" nzAllowClear
+                         [nzMode]="outputdefault(colname.nzMode,'default')"
+                         (ngModelChange)="formdataonchange(colname.Controlname)"
+                         [nzDisabled]="colname.NotEditable?true:false">
+                <nz-option *ngFor="let option of colname.options" [nzLabel]="option.label" [nzValue]="option.value"
+                           [nzDisabled]="option.disabled"></nz-option>
+              </nz-select>
+              <nz-tree-select *ngSwitchCase="'treeselect'" style="width: 100%;height:200px;"
+                              [(ngModel)]="formdata[colname.Controlname]" [nzNodes]="colname.nodes"
+                              [nzPlaceHolder]="'choose option'" [nzShowSearch]="'true'" [nzAllowClear]="'true'"
+                              [nzShowLine]="'true'" [nzDefaultExpandAll]="'false'" [nzSize]="'small'"
+                              [nzDisabled]="colname.NotEditable?true:false"
+                              (ngModelChange)="formdataonchange(colname.Controlname)">
+              </nz-tree-select>
+              <ng-container *ngSwitchCase="'atcomplete'">
+                <input nz-input [(ngModel)]="formdata[colname.Controlname]" [nzAutocomplete]="auto"
+                       (input)="onInput(colname.Controlname)" (ngModelChange)="formdataonchange(colname.Controlname)">
+                <nz-autocomplete [nzDataSource]="colname.datasource" #auto></nz-autocomplete>
+              </ng-container>
+              <a *ngSwitchCase="'linkAction'" (click)="doLink(formdata)">{{formdata[colname.Controlname]}}</a>
+              <span *ngSwitchCase="'label'">{{formdata[colname.Controlname]}}</span>
+              <textarea *ngSwitchCase="'textarea'" [(ngModel)]="formdata[colname.Controlname]" [rows]="colname.rows"
+                        nz-input [placeholder]="''" (ngModelChange)="formdataonchange(colname.Controlname)"></textarea>
+              <ng-container *ngSwitchDefault>
+                <input *ngIf="!colname.NotDisplayed" [(ngModel)]="formdata[colname.Controlname]" nz-input
+                       [disabled]="colname.NotEditable?true:false" [required]="colname.required?true:false"
+                       (ngModelChange)="formdataonchange(colname.Controlname)">
+              </ng-container>
+            </ng-container>
+          </ng-container>
+          <ng-container *ngIf="mode=='s'">{{formdata[colname.Controlname]}}
+            <nz-upload *ngIf="colname.Controltype=='upload'" [(nzFileList)]="colname.fileList"
+                       [nzShowButton]="'false'"></nz-upload>
+
+          </ng-container>
+          <ng-container *ngIf="mode=='e' && !colname.NotEditable">{{formdata[colname.Controlname]}}
+            <nz-upload *ngIf="colname.Controltype=='upload'" [(nzFileList)]="colname.fileList"
+                       [nzShowButton]="'false'"></nz-upload>
+
+          </ng-container>
+          <ng-container *ngIf="mode=='e' && colname.NotEditable"><input [(ngModel)]="formdata[colname.Controlname]"
+                                                                        nz-input
+                                                                        [disabled]="colname.NotEditable?true:false"
+                                                                        [required]="colname.required?true:false"
+                                                                        (ngModelChange)="formdataonchange(colname.Controlname)">
+          </ng-container>
+        </nz-col>
+      </nz-row>
+    </nz-col>
+  </nz-row>
+</nz-card>
+

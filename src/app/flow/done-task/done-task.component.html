@@ -1,0 +1,5 @@
+<app-skl-form formtitle="{{'donetasksearch'|translate}}" [formcolnames]="queryitems" (action)="getquery($event)"
+	[ncolcount]=2 [formdata]="querydata"  [buttons]="['reset','search']"></app-skl-form>
+	
+<app-skl-list   listtitle="{{'donetasklist'|translate}}" [listdata]="listdata" [listcolnames]="listcolnames"
+	(linkAction)="edit($event)"  listtype="'query'"></app-skl-list>

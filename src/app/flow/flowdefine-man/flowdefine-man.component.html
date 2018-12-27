@@ -1,0 +1,11 @@
+<app-skl-form formtitle="flow define"   [formcolnames]="formcolnames" 
+		  (action)="dosubmit($event)" [formdata]="formdata" 
+		 ngutter=40 ncolcount=2   ></app-skl-form>
+		
+		<app-skl-list   listtitle="action" [listdata]="actiondata"
+			[listcolnames]="actioncolnames"    [(fileList)]="actionfileList" tablesize="small">
+			</app-skl-list>
+			
+			<app-skl-list   listtitle="executor" [listdata]="executerdata"
+			[listcolnames]="executercolnames"    [(fileList)]="executerfileList" tablesize="small">
+			</app-skl-list>

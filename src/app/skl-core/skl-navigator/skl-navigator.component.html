@@ -1,0 +1,16 @@
+<ul *ngIf="navigatormoduals.length<=8" nz-menu [nzTheme]="'dark'" [nzMode]="'horizontal'" >
+  <li nz-menu-item *ngFor="let navigatormodual of navigatormoduals">
+    <a (click)="clicknavigator(navigatormodual)">{{navigatormodual.Modualname|translate}}</a>
+  </li>
+</ul>
+
+<nz-dropdown  *ngIf="navigatormoduals.length>8">
+  <a nz-dropdown>
+    {{'Hoverme'|translate}} <i nz-icon type="down"></i>
+  </a>
+  <ul nz-menu nzSelectable [nzTheme]="'dark'">
+    <li nz-menu-item *ngFor="let navigatormodual of navigatormoduals">
+      <a (click)="clicknavigator(navigatormodual)">{{navigatormodual.Modualname|translate}}</a>
+    </li>
+  </ul>
+</nz-dropdown>

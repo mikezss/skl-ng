@@ -1,0 +1,64 @@
+<nz-layout class="layout">
+	 <nz-sider [nzWidth]="300" style="background:#fff">
+	 		<nz-tree [(nzData)]="nodes"
+             [nzShowLine]="true"
+             [nzExpandAll]="false"
+             (nzExpandChange)="mouseAction('expand',$event)"
+             (nzDblClick)="mouseAction('dblclick',$event.preventDefault())"
+             (nzContextMenu)="mouseAction('contextmenu', $event)"
+             (nzClick)="mouseAction('click',$event)"
+             [nzDefaultExpandedKeys]="ExpandedOrgKeys">
+    	</nz-tree>
+	 </nz-sider>
+	<nz-content>	
+		<nz-tabset>
+      <nz-tab nzTitle="{{'orgmanagement'|translate}}">
+		        <app-skl-form formtitle="{{'orgmanagement'|translate}}"   [formcolnames]="formcolnames"
+				  (action)="dosubmit($event)" [formdata]="formdata" 
+				 ngutter=40 ncolcount=2   [buttons]="['save','delete']"></app-skl-form>
+				 
+				 <app-skl-list   listtitle="{{'orgleader'|translate}}" [listdata]="actiondata"
+					[listcolnames]="actioncolnames"    tablesize="small">
+					</app-skl-list>
+      </nz-tab>
+      <nz-tab [nzTitle]="authorizationtabtitle">
+      	<nz-row [nzGutter]="2">
+      		<nz-col [nzSpan]="12"  >
+		      	<nz-input-group [nzSuffix]="suffixIcon" >      		 
+				      <input type="text" nz-input placeholder="Search Tree Node" [(ngModel)]="searchValue">
+				      <ng-template #suffixIcon>
+				      	<i class="anticon anticon-search"></i>
+				    	</ng-template> 
+		           
+				    </nz-input-group>
+		    	</nz-col>
+		    	<nz-col [nzSpan]="12"  >
+				    <button nz-button [nzType]="'primary'" (click)="saveorgpriviledge()">
+		                <i nz-icon [type]="'save'" ></i>
+		                <ng-container >{{'save'|translate}}</ng-container>
+		          </button>
+		    	</nz-col>
+		    </nz-row>
+        <nz-tree
+        		 #nzTree
+             [(nzData)]="rolenodes"
+        		 [nzSearchValue]="searchValue" 
+        		 [nzCheckable]="true" 
+        		 [nzMultiple]="true" 
+             [nzShowLine]="true" 
+             [nzExpandAll]="true"
+             (nzOnSearchNode)="mouseAction('search',$event)">
+        </nz-tree>
+      </nz-tab>
+      <nz-tab nzTitle="{{'relatedusers'|translate}}">
+		         <app-skl-list listtitle="{{'relatedusers'|translate}}" [listdata]="listdata" [listcolnames]="listcolnames" listtype="'query'">
+		         	</app-skl-list>
+      </nz-tab>
+       
+    </nz-tabset>
+    
+		
+		
+		
+</nz-content>
+</nz-layout>

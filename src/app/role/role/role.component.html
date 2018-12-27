@@ -1,0 +1,61 @@
+<nz-layout class="layout">
+	 <nz-sider [nzWidth]="300" style="background:#fff">
+	 		<nz-tree [(nzData)]="nodes"
+             [nzShowLine]="true"
+             [nzExpandAll]="true"
+             (nzExpandChange)="mouseAction('expand',$event)"
+             (nzDblClick)="mouseAction('dblclick',$event.preventDefault())"
+             (nzContextMenu)="mouseAction('contextmenu', $event)"
+             (nzClick)="mouseAction('click',$event)">
+    	</nz-tree>
+	 </nz-sider>
+	<nz-content>
+		<nz-tabset [nzSelectedIndex]="tabindex">
+		<nz-tab  nzTitle="{{'rolemanagement'|translate}}">
+		<app-skl-form  formtitle="{{'rolemanagement'|translate}}"   [formcolnames]="formcolnames"
+		  (action)="dosubmit($event)" [formdata]="formdata" 
+		 ngutter=40 ncolcount=2   [buttons]="['save','delete']"></app-skl-form>
+		 </nz-tab>
+      <nz-tab [nzTitle]="authorizationtabtitle">
+      	<nz-row [nzGutter]="2">
+      		<nz-col [nzSpan]="12"  >
+		      	<nz-input-group [nzSuffix]="suffixIcon" >      		 
+				      <input type="text" nz-input placeholder="Search Tree Node" [(ngModel)]="searchValue">
+				      <ng-template #suffixIcon>
+				      	<i nz-icon [type]="'search'" ></i>
+				    	</ng-template> 
+		           
+				    </nz-input-group>
+		    	</nz-col>
+		    	<nz-col [nzSpan]="12"  >
+				    <button nz-button [nzType]="'primary'" (click)="saverolepriviledge()">
+		                <i nz-icon [type]="'save'" ></i>
+		                <ng-container>{{'save'|translate}}</ng-container>
+		          </button>
+		    	</nz-col>
+		    </nz-row>
+        <nz-tree
+        		 #nzTreerole
+             [(nzData)]="modualnodes"
+        		 [nzSearchValue]="searchValue" 
+        		 [nzCheckable]="true" 
+        		 [nzMultiple]="true" 
+             [nzShowLine]="true" 
+             [nzExpandAll]="true"
+             (nzOnSearchNode)="mouseAction('search',$event)">
+        </nz-tree>            
+    		 
+      </nz-tab>
+      <nz-tab [nzTitle]="userroletabtitle">
+		        <app-skl-list   listtitle="{{'usermanagement'|translate}}" [listdata]="listdata"
+	[listcolnames]="listcolnames"
+	(action)="saveuserrole($event)" [buttons]="['save']"></app-skl-list>
+      </nz-tab>
+       
+    </nz-tabset>
+		 
+		 
+		
+		
+</nz-content>
+</nz-layout>

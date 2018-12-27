@@ -1,0 +1,17 @@
+
+.ant-layout-sider {
+      background: #fff;
+      color: #fff;
+      overflow: auto;
+      left: 0;
+}
+.logo {
+  width: 200px;
+  height: 31px;
+  background: rgba(255, 255, 255, .2);
+  margin: 0px 0px 0px 0;
+  float: left;
+}
+.help{
+  float: right;
+}

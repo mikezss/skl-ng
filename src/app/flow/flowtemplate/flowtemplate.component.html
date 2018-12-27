@@ -1,0 +1,31 @@
+<nz-layout class="layout">
+	 <nz-sider [nzWidth]="200" style="background:#fff">
+	 		<nz-tree [(ngModel)]="nodes"
+             [nzShowLine]="true"
+             [nzDefaultExpandAll]="true"
+             (nzExpandChange)="mouseAction('expand',$event)"
+             (nzDblClick)="mouseAction('dblclick',$event.preventDefault())"
+             (nzContextMenu)="mouseAction('contextmenu', $event)"
+             (nzClick)="mouseAction('click',$event)">
+    	</nz-tree>
+	 </nz-sider>
+	<nz-content>	
+		<app-skl-form  formtitle="{{'flowtemplate'|translate}}"   [formcolnames]="formcolnames"
+		  (action)="dosubmit($event)" [formdata]="formdata" 
+		 ngutter=40 ncolcount=2    [buttons]="['Save','Delete','Copy']"></app-skl-form>
+		
+		<app-skl-list    listtitle="{{'varies'|translate}}" [listdata]="actiondata"
+			[listcolnames]="actioncolnames"    [(fileList)]="actionfileList" tablesize="small">
+			</app-skl-list>
+    <nz-modal [(nzVisible)]="isVisiblemodal" nzTitle="new templateid" (nzOnCancel)="cancelmodal()" (nzOnOk)="confirmmodal()">
+      <nz-row [nzGutter]="40">
+        <nz-col [nzSpan]="12" >newtemplateid:</nz-col>
+        <nz-col [nzSpan]="12" ><input   [(ngModel)]="copytemplateid" nz-input></nz-col>
+        </nz-row>
+      <nz-row [nzGutter]="40">
+        <nz-col [nzSpan]="12" >newtemplatename:</nz-col>
+        <nz-col [nzSpan]="12" ><input   [(ngModel)]="copytemplatename" nz-input></nz-col>
+      </nz-row>
+    </nz-modal>
+</nz-content>
+</nz-layout>

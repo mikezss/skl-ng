@@ -1,0 +1,17 @@
+[
+	{"value":"save","label":"save"},
+	{"value":"export","label":"export"},
+  {"value":"import","label":"import"},
+  {"value":"next","label":"next"},
+  {"value":"return","label":"return"},
+  {"value":"stop","label":"stop"},
+  {"value":"submit","label":"submit"},
+  {"value":"print","label":"print"},
+  {"value":"query","label":"query"},
+  {"value":"reset","label":"reset"},
+  {"value":"delete","label":"delete"},
+  {"value":"pass","label":"pass"},
+  {"value":"back","label":"back"},
+  {"value":"copy","label":"copy"},
+  {"value":"upload","label":"upload"}
+]

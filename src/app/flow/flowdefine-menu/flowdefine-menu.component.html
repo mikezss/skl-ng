@@ -1,0 +1,35 @@
+<ul  nz-menu [nzTheme]="'light'" [nzMode]="'inline'" style="line-height: 64px;" [nzInlineCollapsed]="'false'">
+		        <li nz-submenu [nzOpen]="'true'">
+		        <span title *ngIf="flowdefinename!=''"><i class="anticon anticon-menu-unfold"></i> {{flowdefinename}} 
+			        <nz-dropdown>
+					      <a class="ant-dropdown-link" nz-dropdown>
+					        <ng-container>{{'addtask'|translate}}</ng-container><i class="anticon anticon-down"></i>
+					      </a>
+					      <ul nz-menu>
+					        <li nz-menu-item (click)="addtask('man')"> <ng-container>{{'addmantask'|translate}}</ng-container></li>
+					        <li nz-menu-item (click)="addtask('switch')"> <ng-container>{{'addswitchtask'|translate}}</ng-container></li>				       
+					      </ul>
+			    		</nz-dropdown>
+		    		</span>
+		        <ul>
+		        	<nz-collapse>
+		        		<nz-collapse-panel *ngFor="let menu of menudata" [nzHeader]="outputheader(menu)" [ngStyle]="outputheaderstyle(menu)">
+		        			
+		          <li nz-menu-group >
+		            <span title (click)="dotask(menu)"><i *ngIf="menu.Tasktype=='man'" class="anticon anticon-user"></i><i *ngIf="menu.Tasktype=='switch'" class="anticon anticon-share-alt"></i> {{menu.Taskid}} {{menu.Taskname}} <- {{menu.Lasttaskid}}</span>
+		            <ul>
+		              <li  nz-menu-item *ngFor="let action of menu.actiondata">
+		              	<span *ngIf="menu.Tasktype=='man'">
+		              		<i *ngIf="action.Jump=='stop'" class="anticon anticon-pause"></i><i *ngIf="action.Jump!='stop'" class="anticon anticon-{{action.Jump}}"></i>{{action.Action|translate}}({{action.Status}})<span *ngIf="action.Jump!='stop' && action.Jump!='backward'">->{{action.Nexttask}}</span><span *ngIf="action.Jump=='backward'">->{{action.Backtask}}</span>
+		              	</span>
+		              	<span *ngIf="menu.Tasktype=='switch'">
+		              		<i class="anticon anticon-{{action.Jump}}"></i> {{action.Conditions|translate}} {{action.Functions}} {{action.Valuee}}({{action.Statuss}})<span *ngIf="action.Jump!='stop' && action.Jump!='backward'">->{{action.Nexttask}}</span><span *ngIf="action.Jump=='backward'">->{{action.Backtask}}</span>
+		              	</span>
+		              </li>		              
+		            </ul>
+		          </li>
+		          </nz-collapse-panel>
+		          </nz-collapse>
+		        </ul>
+		      </li>
+</ul>

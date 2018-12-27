@@ -1,0 +1,126 @@
+<nz-card nzNoHovering="true" [nzTitle]="listtitle" [nzExtra]="extra">
+  <ng-template #extra>
+    <ng-container *ngIf="mode=='a'">
+      <nz-button-group>
+        <button *ngIf="listtype=='sgltbl'" nz-button [nzType]="'primary'" (click)="append()">
+          <i nz-icon [type]="'plus'"></i>
+          <ng-container>{{'append'|translate}}</ng-container>
+        </button>
+        <button *ngIf="listtype=='sgltbl'" nz-button [nzType]="'primary'" (click)="move()">
+          <i nz-icon [type]="'minus'"></i>
+          <ng-container>{{'remove'|translate}}</ng-container>
+        </button>
+        <ng-container *ngFor="let button of buttons">
+          <button nz-button [nzType]="'primary'" (click)="doAction(button)">
+            <i nz-icon type="{{button}}" ></i>
+            <ng-container>{{button|translate}}</ng-container>
+          </button>
+        </ng-container>
+      </nz-button-group>
+    </ng-container>
+  </ng-template>
+  <nz-table #nzTable [nzData]="listdata" [nzShowPagination]="'true'" [nzSize]="tablesize" [nzFooter]="null"
+            [nzLoading]="loading" [nzTotal]="total" [(nzPageIndex)]="pageIndex" [(nzPageSize)]="pageSize"
+            [nzShowQuickJumper]="'true'" [nzShowSizeChanger]="'true'" (nzPageIndexChange)="refreshdata()"
+            (nzPageSizeChange)="refreshdata()" [nzFrontPagination]="false" [nzHideOnSinglePage]="true"
+            [nzScroll]="zScroll">
+    <thead>
+    <tr>
+      <th nzCheckbox>
+        <label nz-checkbox [(ngModel)]="_allChecked" [nzIndeterminate]="_indeterminate"
+               (ngModelChange)="_checkAll($event)"></label>
+      </th>
+      <th *ngIf="listtype=='query'">
+        <span >NO</span>
+      </th>
+      <th *ngFor="let colname of listcolnames" [nzWidth]="colname.width">
+        <span *ngIf="colname.Controltype!='icon'">{{colname.Controlname|translate }}</span>
+      </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let data of listdata;let i=index">
+      <td nzCheckbox>
+        <label nz-checkbox [(ngModel)]="data.checked" (ngModelChange)="_refreshStatus($event)"></label>
+      </td>
+      <td *ngIf="listtype=='query'">{{(i+1)}}</td>
+      <td *ngFor="let colname of listcolnames">
+        <ng-container *ngIf="mode=='a'">
+          <ng-container [ngSwitch]="colname.Controltype">
+            <label nz-checkbox *ngSwitchCase="'checkbox'" [(ngModel)]="data[colname.Controlname]"
+                   [nzDisabled]="colname.NotEditable?true:false"
+                   (ngModelChange)="listdataonchange(data,colname.Controlname)"></label>
+            <label *ngSwitchCase="'radio'" nz-radio [(ngModel)]="data[colname.Controlname]"
+                   [nzDisabled]="colname.NotEditable?true:false"
+                   (ngModelChange)="listdataonchange(data,colname.Controlname)"></label>
+            <nz-date-picker *ngSwitchCase="'datepicker'" [(ngModel)]="data[colname.Controlname]"
+                            [nzPlaceHolder]="'Select date'" [nzDisabled]="colname.NotEditable?true:false"
+                            (ngModelChange)="listdataonchange(data,colname.Controlname)"></nz-date-picker>
+            <nz-month-picker *ngSwitchCase="'monthpicker'" [(ngModel)]="data[colname.Controlname]"
+                             (ngModelChange)="listdataonchange(data,colname.Controlname)"
+                             [nzDisabled]="colname.NotEditable?true:false"></nz-month-picker>
+            <nz-year-picker *ngSwitchCase="'yearpicker'" [(ngModel)]="data[colname.Controlname]"
+                            (ngModelChange)="listdataonchange(data,colname.Controlname)"
+                            [nzDisabled]="colname.NotEditable?true:false"></nz-year-picker>
+            <nz-week-picker *ngSwitchCase="'weekpicker'" [(ngModel)]="data[colname.Controlname]"
+                            (ngModelChange)="listdataonchange(data,colname.Controlname)"
+                            [nzDisabled]="colname.NotEditable?true:false"></nz-week-picker>
+
+            <nz-input-number *ngSwitchCase="'number'" [(ngModel)]="data[colname.Controlname]" [nzMin]="colname.minvalue"
+                             [nzMax]="colname.maxvalue" [nzStep]="colname.stepvalue"
+                             (ngModelChange)="listdataonchange(data,colname.Controlname)"
+                             [nzDisabled]="colname.NotEditable?true:false"></nz-input-number>
+            <nz-time-picker *ngSwitchCase="'timepicker'" [(ngModel)]="data[colname.Controlname]"
+                            [nzDisabled]="colname.NotEditable?true:false"
+                            (ngModelChange)="listdataonchange(data,colname.Controlname)"></nz-time-picker>
+            <nz-upload *ngSwitchCase="'upload'" [(nzFileList)]="fileList" [nzBeforeUpload]="beforeUpload">
+              <button nz-button>
+                <i class="anticon anticon-upload"></i>
+                <ng-container>{{'Selectfile'|translate}}</ng-container>
+              </button>
+            </nz-upload>
+            <nz-select *ngSwitchCase="'select'" style="width: 100%;" [(ngModel)]="data[colname.Controlname]"
+                       [nzPlaceHolder]="'choose option'" nzAllowClear
+                       [nzMode]="outputdefault(colname.nzMode,'default')"
+                       nzShowSearch [nzDisabled]="colname.NotEditable?true:false"
+                       (ngModelChange)="listdataonchange(data,colname.Controlname)">
+              <nz-option *ngFor="let option of colname.options" [nzLabel]="option.label" [nzValue]="option.value"
+                         [nzDisabled]="option.disabled"></nz-option>
+            </nz-select>
+            <nz-select *ngSwitchCase="'dataselect'" style="width: 100%;" [(ngModel)]="data[colname.Controlname]"
+                       [nzPlaceHolder]="'choose option'" nzAllowClear [nzMode]="outputdefault(colname.nzMode,'default')"
+                       (ngModelChange)="listdataonchange(data,colname.Controlname)"
+                       [nzDisabled]="colname.NotEditable?true:false">
+              <nz-option *ngFor="let option of data.options" [nzLabel]="option.label" [nzValue]="option.value"
+                         [nzDisabled]="option.disabled"></nz-option>
+            </nz-select>
+            <nz-tree-select *ngSwitchCase="'treeselect'" style="width: 100%;" [(ngModel)]="data[colname.Controlname]" [nzNodes]="colname.nodes" [nzPlaceHolder]="'choose option'" [nzShowSearch]="'true'" [nzAllowClear]="'true'" [nzShowLine]="'true'" [nzDefaultExpandAll]="'false'" [nzDisabled]="colname.NotEditable?true:false" (ngModelChange)="listdataonchange(data,colname.Controlname)">
+            </nz-tree-select>
+            <a *ngSwitchCase="'routerLink'" [routerLink]="data.Routerlink" [queryParams]="data.QueryParams"
+               mat-menu-item>{{data[colname.Controlname]}}</a>
+            <a *ngSwitchCase="'linkAction'" (click)="doLink(data,colname.Controlname)">
+              <ng-container *ngIf="data.Editable">{{colname.Controlname}}</ng-container>
+            </a>
+            <span *ngSwitchCase="'label'">{{data[colname.Controlname]}}</span>
+            <ng-container *ngSwitchCase="'atcomplete'">
+              <input nz-input [(ngModel)]="data[colname.Controlname]" [nzAutocomplete]="auto"
+                     (input)="onInput(data,colname.Controlname)"
+                     (ngModelChange)="listdataonchange(data,colname.Controlname)">
+              <nz-autocomplete [nzDataSource]="colname.datasource" #auto
+                               (ngModelChange)="listdataonchange(data,colname.Controlname)"></nz-autocomplete>
+            </ng-container>
+            <textarea *ngSwitchCase="'textarea'" [(ngModel)]="data[colname.Controlname]" [rows]="colname.rows"
+                      nz-input [placeholder]="''"
+                      (ngModelChange)="listdataonchange(data,colname.Controlname)"></textarea>
+            <input *ngSwitchDefault [(ngModel)]="data[colname.Controlname]" nz-input
+                   (input)="onInput(data,colname.Controlname)" [disabled]="colname.NotEditable?true:false"
+                   (ngModelChange)="listdataonchange(data,colname.Controlname)">
+          </ng-container>
+        </ng-container>
+        <ng-container *ngIf="mode=='s' || mode=='e'">{{data[colname.Controlname]}}</ng-container>
+
+      </td>
+    </tr>
+    </tbody>
+  </nz-table>
+</nz-card>

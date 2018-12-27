@@ -1,0 +1,12 @@
+<app-skl-form 
+	 formtitle="{{'userinfo'|translate}}"
+	[formcolnames]="formcolnames" 
+	(action)="dosubmit($event)" 
+	[formdata]="formdata" 
+	ngutter=40 
+	ncolcount=2  
+	tablesize="small"
+	[buttons]="['query','save']"
+	[mode]="'a'"
+	>
+</app-skl-form>

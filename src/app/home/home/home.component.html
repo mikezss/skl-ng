@@ -1,0 +1,37 @@
+<nz-layout>
+  <nz-header >
+    <div class="logo"><img src="/assets/angular.svg">
+      <button nz-button [nzType]="'primary'" (click)="toggleCollapsed()" style="margin-bottom: 10px;">
+        <i nz-icon type="bars"></i>
+      </button>
+    </div>
+
+    <app-skl-navigator [navigatormoduals]="navigatormoduals"
+                       (onclicknavigator)="clicknavigator($event)"></app-skl-navigator>
+    <nz-dropdown class="help">
+      <a nz-dropdown>
+        <ng-container>{{'help'|translate}}</ng-container><i nz-icon type="down"></i>
+      </a>
+      <ul nz-menu nzSelectable>
+        <li nz-menu-item (click)="logout()"><i class="anticon anticon-logout"></i><ng-container>{{'logout'|translate}}</ng-container></li>
+        <li nz-menu-item (click)="switchlang('Chinese')"><ng-container>{{'Chinese'|translate}}</ng-container></li>
+        <li nz-menu-item (click)="switchlang('English')"><ng-container>{{'English'|translate}}</ng-container></li>
+        <li nz-menu-item (click)="switchlang('Tchinese')"><ng-container>{{'Tchinese'|translate}}</ng-container></li>
+        <li nz-menu-item (click)="switchlang('Japanese')"><ng-container>{{'Japanese'|translate}}</ng-container></li>
+      </ul>
+    </nz-dropdown>
+
+  </nz-header>
+  <nz-layout>
+    <nz-sider [nzCollapsed]="isCollapsed">
+      <app-skl-sidermenu [menumoduals]="menumoduals" (onclickmenu)="clickmenu($event)"
+                         [selectednavigator]="selectednavigator" [isCollapsed]="isCollapsed"></app-skl-sidermenu>
+    </nz-sider>
+    <nz-layout>
+      <app-skl-breadcrumb [breadcrumbs]="breadcrumbs"></app-skl-breadcrumb>
+      <nz-content style="background:#fff; overflow: auto">
+        <router-outlet></router-outlet>
+      </nz-content>
+    </nz-layout>
+  </nz-layout>
+</nz-layout>

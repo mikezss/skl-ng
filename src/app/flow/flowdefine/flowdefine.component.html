@@ -1,0 +1,35 @@
+<nz-layout class="layout">
+	 <nz-sider [nzWidth]="300" style="background:#fff" [nzBreakpoint]="'sm'">
+            <nz-select style="width: 180px;" 
+            	[(ngModel)]="selectedflowtemplateid" [nzPlaceHolder]="'choose option'" nzAllowClear (ngModelChange)="switchtemplate()">
+               <nz-option *ngFor="let option of flowtemplateoptions" [nzLabel]="option.Flowtemplatename" 
+               	[nzValue]="option.Flowtemplateid" [nzDisabled]="option.disabled"></nz-option>
+            </nz-select>
+            <app-flowdefine-menu [menudata]="menudata" [flowdefinename]="flowname" (action)="switchtask2($event)"></app-flowdefine-menu>
+   </nz-sider>
+	<nz-content>
+		
+		<app-skl-form formtitle="{{'mantask'|translate}}"   [formcolnames]="manformcolnames"
+		  (action)="dosubmit($event)" [formdata]="manformdata" 
+		 ngutter=40 ncolcount=2    *ngIf="tasktype=='man'" [buttons]="['Save','Delete']" (formdatachange)="formdatachange($event)"></app-skl-form>
+		
+		<app-skl-list   listtitle="{{'action'|translate}}" [listdata]="manactiondata"
+			[listcolnames]="manactioncolnames"    [(fileList)]="manactionfileList" tablesize="small" *ngIf="tasktype=='man'">
+			</app-skl-list>
+			
+			<app-skl-list   listtitle="{{'executor'|translate}}" [listdata]="manexecuterdata"
+			[listcolnames]="manexecutercolnames"    [(fileList)]="manexecuterfileList" tablesize="small" *ngIf="tasktype=='man'">
+			</app-skl-list>
+			
+		
+		 
+		<app-skl-form formtitle="{{'switchtask'|translate}}"   [formcolnames]="switchformcolnames"
+		  (action)="dosubmit($event)" [formdata]="switchformdata" 
+		 ngutter=40 ncolcount=2    *ngIf="tasktype=='switch'" [buttons]="['Save','Delete']"></app-skl-form>
+		
+		<app-skl-list   listtitle="{{'switch'|translate}}" [listdata]="switchactiondata"
+			[listcolnames]="switchactioncolnames"    [(fileList)]="switchactionfileList" tablesize="small" *ngIf="tasktype=='switch'">
+			</app-skl-list>
+			
+		</nz-content>
+</nz-layout>

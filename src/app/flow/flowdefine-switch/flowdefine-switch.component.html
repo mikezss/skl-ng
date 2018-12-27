@@ -1,0 +1,7 @@
+<app-skl-form formtitle="switch task"   [formcolnames]="formcolnames" 
+		  (action)="dosubmit($event)" [formdata]="formdata" 
+		 ngutter=40 ncolcount=2   ></app-skl-form>
+		
+		<app-skl-list   listtitle="switch" [listdata]="actiondata"
+			[listcolnames]="actioncolnames"    [(fileList)]="actionfileList" tablesize="small">
+			</app-skl-list>

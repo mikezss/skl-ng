@@ -1,0 +1,18 @@
+/* You can add global styles to this file, and also import other style files */
+/*如果需要md-icon需要引入*/
+/*@import 'https://fonts.googleapis.com/icon?family=Material+Icons';*/
+/*必须引入全局CSS样式*/
+/*@import "~@angular/material/prebuilt-themes/deeppurple-amber.css";*/
+/*@import "~@angular/material/prebuilt-themes/indigo-pink.css";*/
+/*@import "~@angular/material/prebuilt-themes/pink-bluegrey.css";*/
+/*@import "~@angular/material/prebuilt-themes/purple-green.css";*/
+@import "node_modules/ng-zorro-antd/src/ng-zorro-antd.min.css";
+
+.done {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  color: white;
+}
+
+

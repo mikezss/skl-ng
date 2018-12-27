@@ -1,0 +1,9 @@
+[
+	{"value":"formlist","label":"formlist"},
+  {"value":"oaform","label":"oaform"},
+	{"value":"form","label":"form"},
+  {"value":"singletablelist","label":"singletablelist"},
+  {"value":"query","label":"query"},
+  {"value":"list","label":"list"},
+  {"value":"listandsave","label":"listandsave"}
+]

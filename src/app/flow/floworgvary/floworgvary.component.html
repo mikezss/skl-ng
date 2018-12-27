@@ -1,0 +1,6 @@
+<app-skl-form formtitle="{{'floworgvary'|translate}}" [formcolnames]="queryitems" (action)="getquery($event)"
+	[ncolcount]=2 [formdata]="querydata" [buttons]="['reset','search']"></app-skl-form>
+	
+<app-skl-list   listtitle="{{'floworgvary'|translate}}" [listdata]="listdata"
+	[listcolnames]="listcolnames"
+	(action)="save($event)"  [(pageIndex)]="pageindex" [(pageSize)]="pagesize" [total]="total" [loading]="loading" (refreshtable)="refreshtable($event)" [buttons]="['save']"></app-skl-list>

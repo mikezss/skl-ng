@@ -1,0 +1,11 @@
+<ul nz-menu [nzMode]="'inline'" style="height:100%;" [nzInlineCollapsed]="isCollapsed">
+  <li nz-submenu [nzOpen]="'true'">
+    <span title><i nz-icon type="user"></i>{{selectednavigator|translate}}</span>
+    <ul>
+      <li nz-menu-item *ngFor="let menu of menumoduals">
+        <a (click)="clickmenu(menu)">{{menu.Modualname|translate}}</a>
+      </li>
+    </ul>
+  </li>
+</ul>
+

@@ -1,0 +1,8 @@
+<app-skl-list 
+	listtitle="{{'companytitle'|translate}}" 
+	[listdata]="listdata" 	
+	[listcolnames]="listcolnames" 
+	(action)="savecompany($event)"
+	(listdatachange)="listdatachange($event)"
+	[buttons]="['save']">
+</app-skl-list>

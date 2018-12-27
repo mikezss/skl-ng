@@ -1,0 +1,16 @@
+table {
+	width:100%
+}
+.stampTable {
+	width:auto;
+}
+.post{text-align:center;vertical-align:middle;}
+.stamp{font-size:8px;color:red;width:62px;height:62px;text-align:right;vertical-align:right;}
+.td-right {
+	text-align:right;
+	vertical-align:right;
+}
+.td-right {
+	text-align:left;
+	vertical-align:middle;
+}

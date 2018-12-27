@@ -1,0 +1,35 @@
+<form nz-form [formGroup]="validateForm" class="login-form" (ngSubmit)="_submitForm()">
+    <nz-form-item>
+        <nz-form-control>
+            <nz-input-group [nzPrefix]="prefix">
+                <input nz-input formControlName="userName" [nzSize]="'large'" [placeholder]="'Username'">
+                <ng-template #prefix>
+                    <i class="anticon anticon-user"></i>
+                </ng-template>
+            </nz-input-group>
+            <nz-form-explain *ngIf="validateForm.controls.userName.dirty&&validateForm.controls.userName.hasError('required')">Please input your username!</nz-form-explain>
+        </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+        <nz-form-control>
+            <nz-input-group [nzPrefix]="prefix">
+                <input nz-input formControlName="password" [type]="'password'" [nzSize]="'large'" [placeholder]="'Password'">
+                <ng-template #prefix>
+                    <i class="anticon anticon-lock"></i>
+                </ng-template>
+            </nz-input-group>
+            <nz-form-explain *ngIf="validateForm.controls.password.dirty&&validateForm.controls.password.hasError('required')"><ng-container i18n>Please input your Password!</ng-container></nz-form-explain>
+        </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+        <nz-form-control>
+            <label nz-checkbox formControlName="remember">
+                <ng-container i18n>Remember me</ng-container>
+            </label>
+            <a class="login-form-forgot"><ng-container i18n>Forgot password</ng-container></a>
+            <button nz-button class="login-form-button" [nzType]="'primary'" [nzSize]="'large'"><ng-container i18n>Log in</ng-container></button>
+            Or
+            <a href><ng-container i18n>register now!</ng-container></a>
+        </nz-form-control>
+    </nz-form-item>
+</form>

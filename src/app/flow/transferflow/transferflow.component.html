@@ -1,0 +1,12 @@
+<app-skl-form   [buttons]="['reset','search']" formtitle="{{'transferflowmanagement'|translate}}" [formcolnames]="queryitems"
+	(action)="getquery($event)" [ncolcount]=1 [(formdata)]="querydata" (formdatachange)="formdatachange($event)" ></app-skl-form>
+	
+<app-skl-list   listtitle="{{'todotasklist'|translate}}" [listcolnames]="listcolnames"
+	[listdata]="listdata" [(buttons)]="buttons" (action)="doAction($event)" mode="'a'"></app-skl-list>
+
+
+ 
+ 
+  
+   
+ 

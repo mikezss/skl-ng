@@ -1,0 +1,12 @@
+<nz-tabset [(nzSelectedIndex)]="tabindex">
+      <nz-tab nzTitle="{{'agentsetting'|translate}}">
+				<app-skl-list   listtitle="{{'agentsetting'|translate}}" [listdata]="listdata"
+					[listcolnames]="listcolnames"
+					(action)="saveagent($event)" (inputfilter)="inputfilter2($event)" [buttons]="['save']"></app-skl-list>
+			</nz-tab>
+			<nz-tab nzTitle="{{'usersearch'|translate}}">				 
+				<app-skl-form [buttons]="['reset','search']" formtitle="{{'usersearch'|translate}}" [formcolnames]="queryitems" (action)="getquery($event)" [ncolcount]=4 [formdata]="querydata"></app-skl-form>
+				<app-skl-list   listtitle="{{'userlist'|translate}}" [listdata]="userlistdata" [listcolnames]="userlistcolnames"  (linkAction)="edit($event)"  listtype="'query'"></app-skl-list>
+			</nz-tab>
+			
+</nz-tabset>			

@@ -1,0 +1,48 @@
+<nz-tabset [(nzSelectedIndex)]="tabindex">
+      <nz-tab  nzTitle="{{'usersearch'|translate}}">
+				<app-skl-form formtitle="{{'usermanagement'|translate}}" [formcolnames]="queryitems" (action)="getquery($event)" [ncolcount]=4 [buttons]="['reset','search']" [formdata]="querydata"></app-skl-form>
+				<app-skl-list   listtitle="{{'userlist'|translate}}" [listdata]="listdata" [listcolnames]="listcolnames"  (linkAction)="edit($event)"  listtype="'query'"></app-skl-list>
+			</nz-tab>
+			
+			<nz-tab  nzTitle="{{'usermanagement'|translate}}">
+				<app-skl-form formtitle="{{'user'|translate}}"   [formcolnames]="formcolnames"
+		  	(action)="dosubmit($event)" [formdata]="formdata" 
+		 		ngutter=40 ncolcount=2    [buttons]="['save','delete']" [mode]="mode"></app-skl-form>
+			</nz-tab>
+			
+			<nz-tab [nzTitle]="authorizationtabtitle">
+      	<nz-row [nzGutter]="2">
+      		<nz-col [nzSpan]="12"  >
+		      	<nz-input-group [nzSuffix]="suffixIcon" >      		 
+				      <input type="text" nz-input placeholder="Search Tree Node" [(ngModel)]="searchValue">
+				      <ng-template #suffixIcon>
+				      	<i class="anticon anticon-search"></i>
+				    	</ng-template> 
+		           
+				    </nz-input-group>
+		    	</nz-col>
+		    	<nz-col [nzSpan]="12"  >
+				    <button nz-button [nzType]="'primary'" (click)="saveuserpriviledge()">
+		                <i nz-icon [type]="'save'"></i>
+		                <ng-container>{{'save'|translate}}</ng-container>
+		          </button>
+		    	</nz-col>
+		    </nz-row>
+        <nz-tree
+        		 #nzTree
+             [(nzData)]="rolenodes"
+        		 [nzSearchValue]="searchValue" 
+        		 [nzCheckable]="true" 
+        		 [nzMultiple]="true" 
+             [nzShowLine]="true" 
+             [nzExpandAll]="true"
+             >
+        </nz-tree>
+      </nz-tab>
+      <nz-tab   nzTitle="{{'userimport'|translate}}">
+				<app-skl-form   formtitle="{{'userimport'|translate}}"   [formcolnames]="importformcolnames"
+		  	(action)="dosubmit($event)" [formdata]="importformdata" (uploadcheck)="uploadcheck($event)"
+		 		ngutter=40 ncolcount=1    [buttons]="['upload']" [mode]="mode"></app-skl-form>
+			</nz-tab>	
+			
+</nz-tabset>

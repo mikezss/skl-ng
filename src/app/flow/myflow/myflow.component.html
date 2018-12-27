@@ -1,0 +1,5 @@
+<app-skl-form  formtitle="{{'myflow'|translate}}" [formcolnames]="queryitems"  (action)="getquery($event)"
+	[ncolcount]=2 [buttons]="['reset','search']" [formdata]="querydata"></app-skl-form>
+	
+<app-skl-list  listtitle="{{'myflowlist'|translate}}" [listdata]="listdata" [listcolnames]="listcolnames"
+	(linkAction)="edit($event)"  listtype="'query'"></app-skl-list>

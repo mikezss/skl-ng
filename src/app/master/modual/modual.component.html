@@ -1,0 +1,33 @@
+<nz-layout class="layout">
+	 <nz-sider [nzWidth]="300" style="background:#fff">
+     <nz-input-group [nzSuffix]="suffixIcon">
+       <input type="text" nz-input placeholder="Search" [(ngModel)]="searchValue">
+     </nz-input-group>
+     <ng-template #suffixIcon>
+       <i nz-icon type="search"></i>
+     </ng-template>
+	 		<nz-tree [(nzData)]="nodes"
+             [nzShowLine]="true"
+             [nzExpandAll]="false"
+             (nzExpandChange)="mouseAction('expand',$event)"
+             (nzDblClick)="mouseAction('dblclick',$event.preventDefault())"
+             (nzContextMenu)="mouseAction('contextmenu', $event)"
+             (nzClick)="mouseAction('click',$event)"
+               [nzSearchValue]="searchValue">
+    	</nz-tree>
+	 </nz-sider>
+	<nz-content>
+		<nz-tabset [(nzSelectedIndex)]="tabindex">
+      <nz-tab [nzTitle]="modualmanagementtabtitle">	
+		<app-skl-form formtitle="{{'modualmanagement'|translate}}"   [formcolnames]="formcolnames"
+		  (action)="dosubmit($event)" [formdata]="formdata" 
+		 ngutter=40 ncolcount=2   [buttons]="['save','delete']"></app-skl-form>
+		</nz-tab>
+		<nz-tab [nzTitle]="modualtemplatetabtitle">
+			<app-skl-form  formtitle=""   [formcolnames]="modualtemplateformcolnames"
+		  (action)="savemodualtemplate($event)" [formdata]="modualtemplateformdata" 
+		 ngutter=40 ncolcount=2   [buttons]="['save','delete']"></app-skl-form>
+		</nz-tab>
+		</nz-tabset>
+</nz-content>
+</nz-layout>

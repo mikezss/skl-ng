@@ -1,0 +1,14 @@
+<app-skl-form
+  formtitle="{{'langsearch'|translate}}"
+  [formcolnames]="queryitems"
+  (action)="getquery($event)"
+  [ncolcount]=2
+  [formdata]="querydata"
+  [buttons]="['reset','search']"
+  (formdatachange)="formdatachange($event)">
+</app-skl-form>
+
+<app-skl-list  listtitle="{{'langsetting'|translate}}" [listdata]="listdata"
+	[listcolnames]="listcolnames" (action)="save($event)" [buttons]="['save','loadjson','updatejson']" [loading]="loading"
+               [(pageIndex)]="pageindex" [(pageSize)]="pagesize" [total]="total" (refreshtable)="refreshtable($event)">
+</app-skl-list>

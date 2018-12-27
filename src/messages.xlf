@@ -1,0 +1,610 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="en" datatype="plaintext" original="ng2.template">
+    <body>
+      <trans-unit id="c417a0daf0f4c4e71aa01530764f81520df411a0" datatype="html">
+        <source>Please input your Password!</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/login/login/login.component.ts</context>
+          <context context-type="linenumber">21</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3eb49d60bd859eb2d9d3a6d380cdf4e0b8252333" datatype="html">
+        <source>Remember me</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/login/login/login.component.ts</context>
+          <context context-type="linenumber">27</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="b4622879a14c1964b5525f3f454c5b899b38bc05" datatype="html">
+        <source>Forgot password</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/login/login/login.component.ts</context>
+          <context context-type="linenumber">29</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="f093d9574ab746b231504bd2cbb65f04bd7b00db" datatype="html">
+        <source>Log in</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/login/login/login.component.ts</context>
+          <context context-type="linenumber">30</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="c8bbc297f7a92ba215cc269d8e6bc284752e3a93" datatype="html">
+        <source>register now!</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/login/login/login.component.ts</context>
+          <context context-type="linenumber">32</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5ecc2b6454b68f6583f0b53c82d88c45edcaa041" datatype="html">
+        <source>help</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/home/home/home.component.ts</context>
+          <context context-type="linenumber">11</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="801c464dfaabb8eb2c16f2cc0bf81435030174dd" datatype="html">
+        <source>login</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/home/home/home.component.ts</context>
+          <context context-type="linenumber">17</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="25508c929e905ee63d835a33652b4b10683179e4" datatype="html">
+        <source>logout</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/home/home/home.component.ts</context>
+          <context context-type="linenumber">23</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="fb3a409d7b70fee389dbdb1fad1b76a1c92fc131" datatype="html">
+        <source>append</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/skl-core/single-table-list-ant/single-table-list-ant.component.ts</context>
+          <context context-type="linenumber">6</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/skl-core/skl-form/skl-form.component.ts</context>
+          <context context-type="linenumber">112</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/skl-core/skl-form-list/skl-form-list.component.ts</context>
+          <context context-type="linenumber">7</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4da487aec5a29ce4372e7b512227cd665b01fe6f" datatype="html">
+        <source>remove</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/skl-core/single-table-list-ant/single-table-list-ant.component.ts</context>
+          <context context-type="linenumber">10</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/skl-core/skl-form/skl-form.component.ts</context>
+          <context context-type="linenumber">116</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/skl-core/skl-form-list/skl-form-list.component.ts</context>
+          <context context-type="linenumber">11</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="c5f70aede841190815dace56a93d364bf8f447f4" datatype="html">
+        <source>save</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/skl-core/single-table-list-ant/single-table-list-ant.component.ts</context>
+          <context context-type="linenumber">14</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/skl-core/skl-form/skl-form.component.ts</context>
+          <context context-type="linenumber">11</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/user/usergroup/usergroup.component.ts</context>
+          <context context-type="linenumber">35</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/user/usermanage/usermanage.component.ts</context>
+          <context context-type="linenumber">27</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/org/org/org.component.ts</context>
+          <context context-type="linenumber">37</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/role/role/role.component.ts</context>
+          <context context-type="linenumber">33</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="878de3ad44e634ecaf219427d948689bd975e1af" datatype="html">
+        <source>reset</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/skl-core/skl-query/skl-query.component.ts</context>
+          <context context-type="linenumber">6</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/skl-core/skl-form/skl-form.component.ts</context>
+          <context context-type="linenumber">7</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="523735fb1b05196fa29fdb31fb224bb6be65093f" datatype="html">
+        <source>query</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/skl-core/skl-query/skl-query.component.ts</context>
+          <context context-type="linenumber">10</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="e95a9542e72bb61cac804b274ab760af2b5f7fc5" datatype="html">
+        <source>Select File</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/skl-core/skl-query/skl-query.component.ts</context>
+          <context context-type="linenumber">42</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/skl-core/skl-form/skl-form.component.ts</context>
+          <context context-type="linenumber">84</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/skl-core/skl-form-list/skl-form-list.component.ts</context>
+          <context context-type="linenumber">43</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="70ef158c584bafe788e319a0bffa11b02ee9abf1" datatype="html">
+        <source>delete</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/skl-core/skl-form/skl-form.component.ts</context>
+          <context context-type="linenumber">15</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="c98077fe229df56d1df276acd22818bd2885eddc" datatype="html">
+        <source>submit</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/skl-core/skl-form/skl-form.component.ts</context>
+          <context context-type="linenumber">20</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="612af120c77b52601251e6833cb9e3cfb55fe0fe" datatype="html">
+        <source>next</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/skl-core/skl-form/skl-form.component.ts</context>
+          <context context-type="linenumber">24</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="9d2bbd8a25cf29b184f4b68e005c11bf67e6c2d5" datatype="html">
+        <source>pass</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/skl-core/skl-form/skl-form.component.ts</context>
+          <context context-type="linenumber">28</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3923c7ee91836570ff8c5cc870a63cd5e2e61564" datatype="html">
+        <source>back</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/skl-core/skl-form/skl-form.component.ts</context>
+          <context context-type="linenumber">32</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2ce13fcefb767d6e4a33e1faaed6ef188f07ca70" datatype="html">
+        <source>return</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/skl-core/skl-form/skl-form.component.ts</context>
+          <context context-type="linenumber">36</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5f3e10c4138ad2ddc19b707afdec396e35dfd8db" datatype="html">
+        <source>stop</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/skl-core/skl-form/skl-form.component.ts</context>
+          <context context-type="linenumber">40</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="37584f889855d153a106f5dffe23d21f9453c8ff" datatype="html">
+        <source>copy</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/skl-core/skl-form/skl-form.component.ts</context>
+          <context context-type="linenumber">44</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="e60711ea6771feebb6e9f545fd378d6c84bb59f7" datatype="html">
+        <source><x id="INTERPOLATION" equiv-text="{{button}}"/></source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/skl-core/skl-query-list-save/skl-query-list-save.component.ts</context>
+          <context context-type="linenumber">7</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="71c640ccb8aa051992c34729e40e6d16a6dede92" datatype="html">
+        <source>add task</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/flow/flowdefine-menu/flowdefine-menu.component.ts</context>
+          <context context-type="linenumber">6</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2f8b7ad3eeae214656d8ceed7dcb431d391226ac" datatype="html">
+        <source>add mantask</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/flow/flowdefine-menu/flowdefine-menu.component.ts</context>
+          <context context-type="linenumber">9</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="395fb9ddf29d9afd44805fa37c95425665c03cb7" datatype="html">
+        <source>add switchtask</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/flow/flowdefine-menu/flowdefine-menu.component.ts</context>
+          <context context-type="linenumber">10</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="0914cbe18bae204217e1851be6d2d24d86e74605" datatype="html">
+        <source>user</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/user/user/user.component.ts</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/user/usermanage/usermanage.component.ts</context>
+          <context context-type="linenumber">8</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="bbd82507206ef4309fc06d541cb78b0492e3e39a" datatype="html">
+        <source>usergroup management</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/user/usergroup/usergroup.component.ts</context>
+          <context context-type="linenumber">15</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="de654db8db900dab309e4890465ce1d552c8e180" datatype="html">
+        <source>user management</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/user/usergroup/usergroup.component.ts</context>
+          <context context-type="linenumber">51</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/user/usermanage/usermanage.component.ts</context>
+          <context context-type="linenumber">3</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/user/usermanage/usermanage.component.ts</context>
+          <context context-type="linenumber">7</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/role/role/role.component.ts</context>
+          <context context-type="linenumber">50</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="0e3a4abb08e149f20d241b7d4e8ff26b3c680ad9" datatype="html">
+        <source>user list</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/user/usermanage/usermanage.component.ts</context>
+          <context context-type="linenumber">4</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/flow/agent/agent.component.ts</context>
+          <context context-type="linenumber">9</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="9b0e18572cbeda2baa2b15568c7b7549e9cb292e" datatype="html">
+        <source>user search</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/user/usermanage/usermanage.component.ts</context>
+          <context context-type="linenumber">2</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/flow/agent/agent.component.ts</context>
+          <context context-type="linenumber">8</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/flow/agent/agent.component.ts</context>
+          <context context-type="linenumber">7</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2a2c1e2e446824bcdf8c69ba3586de68d1a9ef81" datatype="html">
+        <source>password change</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/user/passwordchange/passwordchange.component.ts</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="99199029f9a4944fac64f88524c0d329aa06aa1c" datatype="html">
+        <source>password reset</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/user/passwordreset/passwordreset.component.ts</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="eb0018d505542a32bb4c5d8380d89cb8da96bb57" datatype="html">
+        <source>org management</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/org/org/org.component.ts</context>
+          <context context-type="linenumber">15</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/org/org/org.component.ts</context>
+          <context context-type="linenumber">14</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="d79530b2a59993d5533108b76d58686f443af9ab" datatype="html">
+        <source>org leader</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/org/org/org.component.ts</context>
+          <context context-type="linenumber">19</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6df101440f4b610a8d371e446796a57cc8426f83" datatype="html">
+        <source>related users</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/org/org/org.component.ts</context>
+          <context context-type="linenumber">53</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/org/org/org.component.ts</context>
+          <context context-type="linenumber">52</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8cbf7665a3a8bda1e1c783d36ab34995b59c75b3" datatype="html">
+        <source>role management</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/role/role/role.component.ts</context>
+          <context context-type="linenumber">15</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/role/role/role.component.ts</context>
+          <context context-type="linenumber">14</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="08294ca34a6a155f634a7aea9552ca41fa350a8e" datatype="html">
+        <source>expense</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/expense/expense-apply/expense-apply.component.ts</context>
+          <context context-type="linenumber">2</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="449b94abd246ad036dad6920f0a696a9863cc96a" datatype="html">
+        <source>fee amount</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/expense/expense-apply/expense-apply.component.ts</context>
+          <context context-type="linenumber">3</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="b8ec9449ca2dbf59dbff0023aabf13daeb66766e" datatype="html">
+        <source>paytype title</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/master/pay-type/pay-type.component.ts</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7ebd130f8b30a7509c08dd5746c7fd6662f9d79a" datatype="html">
+        <source>bank setting</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/master/bank/bank.component.ts</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="a4d74f702c0fa19bb690d68da4031982b8172662" datatype="html">
+        <source>currency setting</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/master/currency/currency.component.ts</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="327811e381a17185810017a7a45213766c6b9480" datatype="html">
+        <source>account setting</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/master/account/account.component.ts</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="721fb52612c5e8263773098b90f0d30d775ca346" datatype="html">
+        <source>post title</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/master/post/post.component.ts</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="003564b50b7e04483a9b052eb5568563ac3ac483" datatype="html">
+        <source>degree title</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/master/degree/degree.component.ts</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="073c4fb8339b4c5f60fd98dd008dd9966dacca70" datatype="html">
+        <source>orgtype title</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/master/orgtype/orgtype.component.ts</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="c4f4af23e3573084fe8bdc99a3f624659ec70f91" datatype="html">
+        <source>modual management</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/master/modual/modual.component.ts</context>
+          <context context-type="linenumber">15</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8cda9484f6b359a7ee384c5d14f08cb90a21c5f3" datatype="html">
+        <source>org vary</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/master/orgvary/orgvary.component.ts</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="26571cb887fe26cf8f404641146092ec260b4174" datatype="html">
+        <source>flow template</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/flow/flowtemplate/flowtemplate.component.ts</context>
+          <context context-type="linenumber">13</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="ec39d76e2e6eeeeaa188a23a95f0f0694019d2a6" datatype="html">
+        <source>varies</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/flow/flowtemplate/flowtemplate.component.ts</context>
+          <context context-type="linenumber">17</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6835a89f2c7db81949d01cfe2d4600624287c801" datatype="html">
+        <source>myflow search</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/flow/myflow/myflow.component.ts</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="c5bc2257c930a43c4a70ef2bc6daf27415eea3b9" datatype="html">
+        <source>myflow list</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/flow/myflow/myflow.component.ts</context>
+          <context context-type="linenumber">4</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="e7e8a697bb10ef8a92dd849ef78e984a1dddae9f" datatype="html">
+        <source>todo task search</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/flow/todo-task/todo-task.component.ts</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2b2e62cc9bad7b8e34e6483d35ebd7a3c67a8adb" datatype="html">
+        <source>todo task list</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/flow/todo-task/todo-task.component.ts</context>
+          <context context-type="linenumber">4</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8ffebb7db6b99b9be0e6da783ef2cce8439517ab" datatype="html">
+        <source>done task search</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/flow/done-task/done-task.component.ts</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="a565373d57a88f4a30cadf6f45d210ccc6b8c3b3" datatype="html">
+        <source>done task list</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/flow/done-task/done-task.component.ts</context>
+          <context context-type="linenumber">4</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="73a62af67a11f2a5a2c1a72fa12151c9c505c7c9" datatype="html">
+        <source>flow monitor</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/flow/flow-monitor/flow-monitor.component.ts</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="dd254fc60b76e5d01c3f8bfe779f97813804cfec" datatype="html">
+        <source>flow monitor list</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/flow/flow-monitor/flow-monitor.component.ts</context>
+          <context context-type="linenumber">4</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2df523426c777b19606358f1211b8c658358c8d7" datatype="html">
+        <source>todo trace</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/flow/todo-trace/todo-trace.component.ts</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="c800cc4894fd2bd68d3bb59c3411818604058aad" datatype="html">
+        <source>done trace</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/flow/done-trace/done-trace.component.ts</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="fde3decb0c3082342f471a655924767e8842d759" datatype="html">
+        <source>mantask</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/flow/flowdefine/flowdefine.component.ts</context>
+          <context context-type="linenumber">12</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="dfd3d645bcee3844123b59ba90450bc104880b59" datatype="html">
+        <source>action</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/flow/flowdefine/flowdefine.component.ts</context>
+          <context context-type="linenumber">16</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8a9b9fbb2a3d97d398f770d70785a7241897c24f" datatype="html">
+        <source>executor</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/flow/flowdefine/flowdefine.component.ts</context>
+          <context context-type="linenumber">20</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8f742febbf167d55a6e3c91b6df633c27dc62d66" datatype="html">
+        <source>switch task</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/flow/flowdefine/flowdefine.component.ts</context>
+          <context context-type="linenumber">26</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="701d8fd4080bea36a6adc975daa8cb93ac6e0c57" datatype="html">
+        <source>switch</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/flow/flowdefine/flowdefine.component.ts</context>
+          <context context-type="linenumber">30</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="84638f78784d5b71993255bd71d2dc1045f960ed" datatype="html">
+        <source>flow org vary</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/flow/floworgvary/floworgvary.component.ts</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="c920bbb4fc6bf322b24c4d10fc020ec1049a8686" datatype="html">
+        <source>flowstatus</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/flow/flowstatus/flowstatus.component.ts</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="94472dbce43cf7a12bfe4e16fd30705b116953a1" datatype="html">
+        <source>agent setting</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/flow/agent/agent.component.ts</context>
+          <context context-type="linenumber">3</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/flow/agent/agent.component.ts</context>
+          <context context-type="linenumber">2</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="176c6265df6a4c4824f16ca79235ccb113dd1c2f" datatype="html">
+        <source>transfer flow management</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/flow/transferflow/transferflow.component.ts</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="d90869f456c3fba4713f3fafd17caad9897f0ccd" datatype="html">
+        <source>transfer flow</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/flow/transferflow/transferflow.component.ts</context>
+          <context context-type="linenumber">4</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="95539c67912024899a84513138198037a33bd750" datatype="html">
+        <source>Flowinstid</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/flow/trace-header/trace-header.component.ts</context>
+          <context context-type="linenumber">8</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="b6026c008059edc1244baa97ea8e1d4244816e56" datatype="html">
+        <source>Flowstatus</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/flow/trace-header/trace-header.component.ts</context>
+          <context context-type="linenumber">9</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="199f59566005800eca93733b4728b24be3ad971a" datatype="html">
+        <source>Now</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/flow/trace-header/trace-header.component.ts</context>
+          <context context-type="linenumber">10</context>
+        </context-group>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

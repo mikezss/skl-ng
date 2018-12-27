@@ -1,0 +1,8 @@
+[
+	{"value":"save","label":"save"},
+	{"value":"submit","label":"submit"},
+	{"value":"return","label":"return"},
+	{"value":"pass","label":"pass"},
+	{"value":"stop","label":"stop"},
+	{"value":"next","label":"next"}
+]

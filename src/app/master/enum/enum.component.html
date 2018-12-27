@@ -1,0 +1,21 @@
+<app-skl-form 
+	formtitle="{{'enumformtitle'|translate}}"   
+	[formcolnames]="formcolnames" 				  
+	(action)="dosubmit($event)" 
+	[formdata]="formdata" 
+	ngutter=40 
+	ncolcount=2
+	[buttons]="['query','save']"
+	(formdatachange)="formdatachange($event)"
+>
+</app-skl-form>
+<app-skl-list 
+	listtitle="{{'enumformlisttitle'|translate}}" 
+	[listdata]="listdata" 
+	[listcolnames]="listcolnames"
+	(listdatachange)="listdatachange($event)" 
+	[zScroll]="{ x: '400px' }"
+	tablesize="small"
+    [mode]="m"
+>
+</app-skl-list>
