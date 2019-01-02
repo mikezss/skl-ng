@@ -195,6 +195,16 @@ export class MasterService {
 
     return this.http.post(this.ls.api_url + '/master/updatelangjson', data, httpOptions).pipe();
   }
+  saveprojectpath(data: any): Observable<any> {
+
+    return this.http.post(this.ls.api_url + '/master/updateprojectpath', data, httpOptions).pipe();
+  }
+
+  getprojectpath(): Observable<any> {
+
+    return this.http.get(this.ls.api_url + '/master/getprojectpath', httpOptions).pipe();
+  }
+
   saveenum(formdata, listdata): Observable<any> {
 
     return this.http.post(this.ls.api_url + '/enum/saveenum', {

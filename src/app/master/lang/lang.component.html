@@ -1,4 +1,6 @@
-<app-skl-form
+<nz-tabset [(nzSelectedIndex)]="tabindex">
+  <nz-tab nzTitle="{{'langsetting'|translate}}">
+  <app-skl-form
   formtitle="{{'langsearch'|translate}}"
   [formcolnames]="queryitems"
   (action)="getquery($event)"
@@ -12,3 +14,10 @@
 	[listcolnames]="listcolnames" (action)="save($event)" [buttons]="['save','loadjson','updatejson']" [loading]="loading"
                [(pageIndex)]="pageindex" [(pageSize)]="pagesize" [total]="total" (refreshtable)="refreshtable($event)">
 </app-skl-list>
+  </nz-tab>
+  <nz-tab nzTitle="{{'projectpathsetting'|translate}}">
+    <app-skl-form  formtitle=""   [formcolnames]="formcolnames"
+                   (action)="saveprojectpath($event)" [formdata]="formdata"
+                   ngutter=40 ncolcount=2   [buttons]="['save']"></app-skl-form>
+  </nz-tab>
+</nz-tabset>

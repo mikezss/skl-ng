@@ -16,6 +16,9 @@ export class LangComponent implements OnInit {
   pagesize = 10;
   total = 1;
   loading = false;
+  tabindex = 0;
+  formdata: any[] = [];
+  formcolnames: any[] = [];
 
   constructor(private ms: MasterService, private message: NzMessageService) {
   }
@@ -31,6 +34,10 @@ export class LangComponent implements OnInit {
       {'Controlname': 'Tchinese', 'Controltype': 'textbox'},
       {'Controlname': 'English', 'Controltype': 'textbox'},
       {'Controlname': 'Japanese', 'Controltype': 'textbox'}
+    ];
+    this.formcolnames = [
+      {'Controlname': 'Godirectory', 'Controltype': 'textbox'},
+      {'Controlname': 'Ngdirectory', 'Controltype': 'textbox'}
     ];
     this.reset();
   }
@@ -95,9 +102,18 @@ export class LangComponent implements OnInit {
       this.total = response.Total;
     });
     this.refreshtable({'Pageindex': 1, 'Pagesize': 10});
+    this.ms.getprojectpath().subscribe(response => {
+      this.formdata = response;
+    });
   }
 
   formdatachange(event) {
 
+  }
+  saveprojectpath(event){
+    this.ms.saveprojectpath(this.formdata).subscribe(data => {
+      console.log(data);
+      this.message.info('submit==>' + data.status);
+    });
   }
 }

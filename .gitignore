@@ -43,3 +43,8 @@ testem.log
 .DS_Store
 Thumbs.db
 *.bak
+src/assets/i18n/Chinese.json
+src/assets/i18n/English.json
+src/assets/i18n/Japanese.json
+src/assets/i18n/Tchinese.json
+src/assets/i18n/Chinese.json
