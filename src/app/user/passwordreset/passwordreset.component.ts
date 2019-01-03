@@ -16,6 +16,7 @@ import {
   styleUrls: ['./passwordreset.component.css']
 })
 export class PasswordresetComponent implements OnInit {
+  mode = 'a';
   userid = '';
   formcolnames: any[] = [];
   formdata: any = {};
