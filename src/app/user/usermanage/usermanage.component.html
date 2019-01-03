@@ -1,6 +1,6 @@
 <nz-tabset [(nzSelectedIndex)]="tabindex">
       <nz-tab  nzTitle="{{'usersearch'|translate}}">
-				<app-skl-form formtitle="{{'usermanagement'|translate}}" [formcolnames]="queryitems" (action)="getquery($event)" [ncolcount]=4 [buttons]="['reset','search']" [formdata]="querydata"></app-skl-form>
+				<app-skl-form formtitle="{{'usermanagement'|translate}}" [formcolnames]="queryitems" (action)="getquery($event)" [ncolcount]=3 [buttons]="['reset','search']" [formdata]="querydata"></app-skl-form>
 				<app-skl-list   listtitle="{{'userlist'|translate}}" [listdata]="listdata" [listcolnames]="listcolnames"  (linkAction)="edit($event)"  listtype="'query'"></app-skl-list>
 			</nz-tab>
 			

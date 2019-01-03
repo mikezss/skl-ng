@@ -76,12 +76,10 @@ export class UsermanageComponent implements OnInit {
     this.formcolnames = [
       {'Controlname': 'Userid', 'Controltype': 'textbox'},
       {'Controlname': 'Username', 'Controltype': 'textbox'},
-      {'Controlname': 'Isleader', 'Controltype': 'checkbox'},
       {
         'Controlname': 'Userlevel', 'Controltype': 'select',
         'options': [], 'nzMode': 'default', 'datasource': '/assets/userlevel.json'
       },
-      {'Controlname': 'Orgid', 'Controltype': 'treeselect', 'nodes': []},
       {'Controlname': 'Expireddate', 'Controltype': 'datepicker'},
       {'Controlname': 'Loginip', 'Controltype': 'textbox'},
       {
@@ -94,6 +92,8 @@ export class UsermanageComponent implements OnInit {
       },
       {'Controlname': 'Email', 'Controltype': 'textbox'},
       {'Controlname': 'Remark', 'Controltype': 'textarea'},
+      {'Controlname': 'Orgid', 'Controltype': 'treeselect', 'nodes': []},
+      {'Controlname': 'Isleader', 'Controltype': 'checkbox'},
     ];
     this.importformcolnames = [
       {
@@ -131,7 +131,7 @@ export class UsermanageComponent implements OnInit {
     } else {
       console.log(event);
       console.log(this.queryitems);
-      this.ms.getuser(event).subscribe(data => {
+      this.ms.getuser(this.querydata).subscribe(data => {
         console.log(data);
         this.listdata = data;
         for (const ld of this.listdata) {
@@ -262,6 +262,7 @@ export class UsermanageComponent implements OnInit {
 
   reset() {
     this.querydata = {};
+    this.listdata = [];
   }
 
   uploadcheck(event) {
