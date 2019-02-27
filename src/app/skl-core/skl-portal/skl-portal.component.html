@@ -1,0 +1,10 @@
+
+<ng-template cdkPortal >
+  <p>The content of this template is captured by the portal.</p>
+</ng-template>
+
+<div nz-row [nzGutter]="ngutter">
+  <div nz-col  [nzSpan]="24/ncount" *ngFor="let pd of portletdata">
+    <div><ng-template [cdkPortalOutlet]="pd.portal"></ng-template></div>
+  </div>
+</div>

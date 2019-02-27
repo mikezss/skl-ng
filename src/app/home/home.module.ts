@@ -14,6 +14,7 @@ import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import {HomeService} from './home.service';
 import {HomeComponent} from './home/home.component';
 import {HomeRoutingModule} from '../home-routing.module';
+import { PortalComponent } from './portal/portal.component';
 
 export function createTranslateHttpLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -33,7 +34,7 @@ export function createTranslateHttpLoader(http: HttpClient) {
     }),
     HomeRoutingModule,
   ],
-  declarations: [HomeComponent],
+  declarations: [HomeComponent, PortalComponent],
   providers: [HomeService],
   exports: [HomeComponent]
 })

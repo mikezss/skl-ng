@@ -11,16 +11,20 @@ import {RouterModule} from '@angular/router';
 
 import {NgModule} from '@angular/core';
 import { EssenceNg2PrintModule } from 'essence-ng2-print';
-
+import { CKEditorModule } from 'ng2-ckeditor';
+import {PortalModule} from '@angular/cdk/portal';
+import {MatGridListModule} from '@angular/material/grid-list';
 @NgModule({
   imports: [
     BrowserModule, BrowserAnimationsModule, FormsModule, ReactiveFormsModule, CommonModule,
-    RouterModule, NgZorroAntdModule, HttpModule, HttpClientModule, TranslateModule, EssenceNg2PrintModule
+    RouterModule, NgZorroAntdModule, HttpModule, HttpClientModule, TranslateModule, EssenceNg2PrintModule, CKEditorModule, PortalModule,
+    MatGridListModule
   ],
   declarations: [],
   exports: [
     BrowserModule, BrowserAnimationsModule, FormsModule, ReactiveFormsModule, CommonModule,
-    RouterModule, NgZorroAntdModule, HttpModule, HttpClientModule, TranslateModule, EssenceNg2PrintModule
+    RouterModule, NgZorroAntdModule, HttpModule, HttpClientModule, TranslateModule, EssenceNg2PrintModule, CKEditorModule, PortalModule,
+    MatGridListModule
   ]
 })
 export class SklCommonModule {

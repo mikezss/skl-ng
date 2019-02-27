@@ -16,6 +16,7 @@ import { SklNavigatorComponent } from './skl-navigator/skl-navigator.component';
 import { SklSidermenuComponent } from './skl-sidermenu/skl-sidermenu.component';
 import { SklBreadcrumbComponent } from './skl-breadcrumb/skl-breadcrumb.component';
 import { SklListComponent } from './skl-list/skl-list.component';
+import { SklPortalComponent } from './skl-portal/skl-portal.component';
 
 export function createTranslateHttpLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, '../assets/i18n/', '.json');
@@ -34,7 +35,7 @@ export function createTranslateHttpLoader(http: HttpClient) {
 
   ],
   exports: [BaseComponentComponent, DynamicFormComponent, DynamicFormItemComponent, SklFormComponent, SklNavigatorComponent, SklSidermenuComponent, SklBreadcrumbComponent, SklListComponent],
-  declarations: [BaseComponentComponent, DynamicFormComponent, DynamicFormItemComponent, SklFormComponent, SklNavigatorComponent, SklSidermenuComponent, SklBreadcrumbComponent, SklListComponent],
+  declarations: [BaseComponentComponent, DynamicFormComponent, DynamicFormItemComponent, SklFormComponent, SklNavigatorComponent, SklSidermenuComponent, SklBreadcrumbComponent, SklListComponent, SklPortalComponent],
   providers: [LoginService, TranslateService]
 })
 export class SklCoreModule {

@@ -1,11 +1,5 @@
-<essence-ng2-print
-  [mode]="'popup'"
-  [popTitle]="'流程打印'"
-  [btnText]="'打印'"
-  [btnClass]="{'btn': true, 'btn-info': true}"
-  [printHTML]="print">
-</essence-ng2-print>
-	<table #print>
+
+	<table >
 		<tr><td colspan="2" id='PrintBar'><hr size=1></td>
     </tr>
 		<tr *ngFor="let task1 of taskdata">

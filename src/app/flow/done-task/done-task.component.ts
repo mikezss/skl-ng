@@ -82,7 +82,7 @@ export class DoneTaskComponent implements OnInit {
         // <a [routerLink]="['/product']" [queryParams]="{id:1}"></a>
         // data1.Routerlink=data1.Url;
         data1.Routerlink = '/task-trace';
-        data1.QueryParams = {'Mode': 's', 'Flowinstid': data1.Fiid, 'Tiid': data1.Tiid};
+        data1.QueryParams = {'Mode': 's', 'Flowinstid': data1.Fiid, 'Tiid': data1.Tiid, 'Url': data1.Url};
       }
       this.listdata = respons;
 

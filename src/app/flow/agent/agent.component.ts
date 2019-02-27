@@ -10,6 +10,7 @@ import {NzMessageService} from 'ng-zorro-antd';
   styleUrls: ['./agent.component.css']
 })
 export class AgentComponent implements OnInit {
+  mode = 'a';
   allusers: any[] = [];
   tabindex: any = 0;
   listdata: any[] = [];
@@ -46,9 +47,11 @@ export class AgentComponent implements OnInit {
       {'Controlname': 'Userid', 'Controltype': 'textbox'},
       {
         'Controlname': 'Usertype',
-        'Controltype': 'checkboxgroup',
-        'checkboxgroup': [], 'datasource': this.ls.api_url + '/enum/getenumitemoptions',
-        'parameter': {'Enumcode': 'usertype'}
+        'Controltype': 'select',
+        'checkboxgroup': [],
+        'datasource': this.ls.api_url + '/enum/getenumitemoptions',
+        'parameter': {'Enumcode': 'usertype'},
+        'nzMode': 'default'
       }
     ];
 
@@ -78,14 +81,22 @@ export class AgentComponent implements OnInit {
   getquery(event) {
     if (event == 'search') {
       this.querydata.Submitter = this.ls.userid;
+      if (this.querydata.Usertype == '1') {
+        this.querydata.Isleader = true;
+      } else {
+        this.querydata.Isleader = false;
+      }
       this.fs.getuserforagent(this.querydata).subscribe(response => {
         // console.log(response);
 
         this.userlistdata = response;
       });
-    } else {
+    }
+
+    if (event == 'reset') {
       this.querydata = {};
     }
+
   }
 
   edit(event) {

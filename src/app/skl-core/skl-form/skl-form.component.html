@@ -27,6 +27,14 @@
         <nz-col [nzSpan]="16">
           <ng-container *ngIf="mode=='a'">
             <ng-container [ngSwitch]="colname.Controltype">
+              <ckeditor *ngSwitchCase="'richtexteditor'"
+                [(ngModel)]="formdata[colname.Controlname]"
+                [config]="{uiColor: '#99000'}"
+                [readonly]="false"
+                (change)="formdataonchange(colname.Controlname)"
+                (editorChange)="formdataonchange(colname.Controlname)"
+              debounce="500">
+              </ckeditor>
               <button nz-button *ngSwitchCase="'button'" [nzType]="'primary'" (click)="formdataonchange(colname.Controlname)"><ng-container>{{colname.Controlname|translate}}</ng-container></button>
               <label nz-checkbox *ngSwitchCase="'checkbox'" [(ngModel)]="formdata[colname.Controlname]"
                      [nzDisabled]="colname.NotEditable?true:false"

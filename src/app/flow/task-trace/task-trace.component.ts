@@ -16,8 +16,9 @@ import {
 } from '@angular/router';
 
 import {NzTreeNode} from 'ng-zorro-antd';
-import { EssenceNg2PrintComponent } from 'essence-ng2-print';
-
+import {EssenceNg2PrintComponent} from 'essence-ng2-print';
+import {ComponentPortal, Portal, TemplatePortal} from '@angular/cdk/portal';
+// import {ExpenseApplyComponent} from '../../expense/expense-apply/expense-apply.component';
 
 
 @Component({
@@ -36,10 +37,20 @@ export class TaskTraceComponent implements OnInit {
   taskheader: any[] = [];
   donetasklist: any[] = [];
   todotasklist: any[] = [];
+  portal: Portal<any>;
+  pc: any[] = [
+    // {path: '/expense-apply', component: ExpenseApplyComponent}
+  ];
+  url = '';
 
   constructor(private ls: LoginService, private fs: FlowService, private message: NzMessageService, private router: ActivatedRoute, private router2: Router) {
-    // this.printCSS = ['http://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css'];
-   // this.printStyle = `th, td {color: black !important;} `;
+    this.printCSS = ['/assets/ng-zorro-antd.min.css'];
+    this.printStyle =
+      `
+      th, td {
+        color: black !important;
+     }
+     `;
   }
 
   ngOnInit() {
@@ -49,6 +60,7 @@ export class TaskTraceComponent implements OnInit {
         this.currentfiid = parseInt(params.Flowinstid);
         this.currenttiid = parseInt(params.Tiid);
         this.currentflowtemplateid = params.Flowtemplateid;
+        this.url = params.Url;
         this.fs.getdonetasklist({'Fiid': this.currentfiid, 'Tiid': this.currenttiid}).subscribe(data => {
 
           this.donetasklist = data;
@@ -78,13 +90,15 @@ export class TaskTraceComponent implements OnInit {
         this.fs.gettodotasklist({'Fiid': this.currentfiid, 'Tiid': this.currenttiid}).subscribe(data => {
           this.todotasklist = data;
         });
-        let navigationExtras: NavigationExtras = {
-          queryParamsHandling: 'preserve',
-          preserveFragment: true
-        };
-        navigationExtras = {queryParams: {'Mode': 'a', 'Flowinstid': this.currentfiid, 'Tiid': this.currenttiid}};
+        // let navigationExtras: NavigationExtras = {
+        //   queryParamsHandling: 'preserve',
+        //   preserveFragment: true
+        // };
+        // navigationExtras = {queryParams: {'Mode': 'a', 'Flowinstid': this.currentfiid, 'Tiid': this.currenttiid}};
         // this.router2.navigate(['/expense-apply2'], navigationExtras);
-        this.router2.navigate([{'outlets': {'donetasktrace': ['expense-apply2']}}], navigationExtras);
+        // this.router2.navigate([{'outlets': {'donetasktrace': ['expense-apply2']}}], navigationExtras);
+
+        this.portal = new ComponentPortal(this.getcomponentbypath(this.url));
       }// if
     });
   }// ngOnInit
@@ -94,6 +108,14 @@ export class TaskTraceComponent implements OnInit {
   }
   beforePrint() {
     this.printBtnBoolean = false;
+  }
+  getcomponentbypath(path): any {
+    for (let cdr of this.pc) {
+      if ( cdr.path === path) {
+        return cdr.component;
+        break;
+      }
+    }
   }
 
 }

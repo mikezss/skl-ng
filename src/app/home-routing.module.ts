@@ -27,6 +27,7 @@ import {UserinfoComponent} from './user/userinfo/userinfo.component';
 import {LangComponent} from './master/lang/lang.component';
 import {EnumComponent} from './master/enum/enum.component';
 import {CompanyComponent} from './master/company/company.component';
+import {PortalComponent} from './home/portal/portal.component';
 import {HomeComponent} from './home/home/home.component';
 
 const adminRoutes: Routes = [
@@ -63,7 +64,9 @@ const adminRoutes: Routes = [
           {path: 'userinfo', component: UserinfoComponent},
           {path: 'enum', component: EnumComponent},
           {path: 'company', component: CompanyComponent},
-          {path: 'lang', component: LangComponent}
+         
+          {path: 'portal', component: PortalComponent},
+	   {path: 'lang', component: LangComponent}
         ]
       }
     ]

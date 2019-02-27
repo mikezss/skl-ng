@@ -1,7 +1,19 @@
+<essence-ng2-print
+  [mode]="'popup'"
+  [standard]="'html5'"
+  [popTitle]="'流程打印'"
+  [btnText]="'打印'"
+  [btnClass]="{'btn': true, 'btn-info': true}"
+  [printHTML]="print_div"
+  [printCSS]="printCSS"
+>
+</essence-ng2-print>
+<div id="print_div" #print_div>
 <app-trace-header [taskdata]="taskheader"></app-trace-header>
-<router-outlet name="donetasktrace"></router-outlet>
+<ng-template [cdkPortalOutlet]="portal"></ng-template>
 <app-done-trace [listdata]="donetasklist"></app-done-trace>
 <app-todo-trace [listdata]="todotasklist"></app-todo-trace>
+</div>
 
 
 

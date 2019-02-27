@@ -18,7 +18,7 @@ export class SklFormComponent implements OnInit {
   @Input() ngutter = 40;
   @Input() ncolcount = 1;
   @Input() tablesize = 'default';
-  @Input() buttons: any[] = ['save'];
+  @Input() buttons: any[] = [];
   @Input() nzformat = 'yyyy-MM-dd HH:mm:ss';
   @Input() disabledDate: any;
   @Input() disabledRangeTime: any;

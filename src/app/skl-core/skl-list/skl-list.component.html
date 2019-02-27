@@ -115,6 +115,7 @@
             <input *ngSwitchDefault [(ngModel)]="data[colname.Controlname]" nz-input
                    (input)="onInput(data,colname.Controlname)" [disabled]="colname.NotEditable?true:false"
                    (ngModelChange)="listdataonchange(data,colname.Controlname)">
+            <ng-container *ngSwitchCase="'icon'"><i nz-icon [type]="colname.icon" [theme]="'fill'"></i></ng-container>
           </ng-container>
         </ng-container>
         <ng-container *ngIf="mode=='s' || mode=='e'">{{data[colname.Controlname]}}</ng-container>
