@@ -45,7 +45,7 @@ export class LangComponent implements OnInit {
   save(event) {
     // console.log(event);
     console.log(this.listdata);
-    if (event == 'save') {
+    if (event == 'Save') {
       this.ms.savelang(this.listdata).subscribe(data => {
         console.log(data);
         this.message.info('submit==>' + data.status);

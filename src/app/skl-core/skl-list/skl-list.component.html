@@ -11,19 +11,21 @@
           <ng-container>{{'remove'|translate}}</ng-container>
         </button>
         <ng-container *ngFor="let button of buttons">
-          <button nz-button [nzType]="'primary'" (click)="doAction(button)">
-            <i nz-icon type="{{button}}" ></i>
-            <ng-container>{{button|translate}}</ng-container>
+          <button nz-button [nzType]="'primary'" (click)="doAction(button.name)">
+            <i nz-icon type="{{button.icon}}" ></i>
+            <ng-container>{{button.name|translate}}</ng-container>
           </button>
         </ng-container>
       </nz-button-group>
     </ng-container>
   </ng-template>
-  <nz-table #nzTable [nzData]="listdata" [nzShowPagination]="'true'" [nzSize]="tablesize" [nzFooter]="null"
+  <nz-table  [nzData]="listdata" [nzShowPagination]="'true'" [nzSize]="tablesize" [nzFooter]="null"
             [nzLoading]="loading" [nzTotal]="total" [(nzPageIndex)]="pageIndex" [(nzPageSize)]="pageSize"
             [nzShowQuickJumper]="'true'" [nzShowSizeChanger]="'true'" (nzPageIndexChange)="refreshdata()"
             (nzPageSizeChange)="refreshdata()" [nzFrontPagination]="false" [nzHideOnSinglePage]="true"
-            [nzScroll]="zScroll">
+            [nzScroll]="zScroll" [nzBordered]="zBordered" [nzNoResult]="'nodata'"
+
+  >
     <thead>
     <tr>
       <th nzCheckbox>
@@ -38,8 +40,9 @@
       </th>
     </tr>
     </thead>
-    <tbody>
-    <tr *ngFor="let data of listdata;let i=index">
+    <tbody  >
+
+    <tr    *ngFor="let data of listdata;let i=index">
       <td nzCheckbox>
         <label nz-checkbox [(ngModel)]="data.checked" (ngModelChange)="_refreshStatus($event)"></label>
       </td>
@@ -101,6 +104,10 @@
             <a *ngSwitchCase="'linkAction'" (click)="doLink(data,colname.Controlname)">
               <ng-container *ngIf="data.Editable">{{colname.Controlname}}</ng-container>
             </a>
+            <a nz-popconfirm *ngSwitchCase="'popconfirm'"  [nzTitle]="colname.poptitle" (nzOnConfirm)="confirm(data,colname.Controlname)" >
+              {{colname.Controlname}}
+            </a>
+
             <span *ngSwitchCase="'label'">{{data[colname.Controlname]}}</span>
             <ng-container *ngSwitchCase="'atcomplete'">
               <input nz-input [(ngModel)]="data[colname.Controlname]" [nzAutocomplete]="auto"
@@ -117,11 +124,14 @@
                    (ngModelChange)="listdataonchange(data,colname.Controlname)">
             <ng-container *ngSwitchCase="'icon'"><i nz-icon [type]="colname.icon" [theme]="'fill'"></i></ng-container>
           </ng-container>
+
         </ng-container>
+
         <ng-container *ngIf="mode=='s' || mode=='e'">{{data[colname.Controlname]}}</ng-container>
 
       </td>
     </tr>
+
     </tbody>
   </nz-table>
 </nz-card>

@@ -12,7 +12,7 @@
 	<nz-content>	
 		<app-skl-form  formtitle="{{'flowtemplate'|translate}}"   [formcolnames]="formcolnames"
 		  (action)="dosubmit($event)" [formdata]="formdata" 
-		 ngutter=40 ncolcount=2    [buttons]="['Save','Delete','Copy']"></app-skl-form>
+		 ngutter=40 ncolcount=2    [buttons]="[{'name':'Save','icon':'save'},{'name':'Delete','icon':'delete'},{'name':'Copy','icon':'copy'}]"></app-skl-form>
 		
 		<app-skl-list    listtitle="{{'varies'|translate}}" [listdata]="actiondata"
 			[listcolnames]="actioncolnames"    [(fileList)]="actionfileList" tablesize="small">

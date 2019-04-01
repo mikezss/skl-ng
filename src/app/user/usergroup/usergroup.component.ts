@@ -93,7 +93,7 @@ export class UsergroupComponent implements OnInit {
     console.log(event);
     console.log(this.formdata);
 
-    if (event == 'save') {
+    if (event == 'Save') {
       this.us.savegroups(this.formdata).subscribe(data => {
         console.log(data);
         this.message.info('submit==>' + data.status);
@@ -210,7 +210,7 @@ export class UsergroupComponent implements OnInit {
       listdata2.push({'Groupid': this.selectedkey, 'Userid': condition.Userid});
     }
     console.log(listdata2);
-    if (event == 'save') {
+    if (event == 'Save') {
       this.us.saveusergroup(listdata2).subscribe(data => {
         console.log(data);
         this.message.info('submit==>' + data.status);

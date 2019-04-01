@@ -34,7 +34,8 @@
     "ng2-ckeditor": "^1.2.2",
     "rxjs": "^6.2.2",
     "rxjs-compat": "6.0.0",
-    "zone.js": "^0.8.26"
+    "zone.js": "^0.8.26",
+    "ngx-store": "^2.1.0"
   },
   "devDependencies": {
     "@angular/compiler-cli": "^6.1.1",

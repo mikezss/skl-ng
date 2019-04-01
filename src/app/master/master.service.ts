@@ -22,6 +22,7 @@ const httpuploadOptions = {
 
 @Injectable()
 export class MasterService {
+  formdata: any = {};
 
   constructor(private ls: LoginService, private http: HttpClient) {
   }
@@ -40,25 +41,7 @@ export class MasterService {
 
     return this.http.get('/assets/emergency.json').pipe();
   }
-  savepost(postdata: any): Observable<any> {
 
-    return this.http.post(this.ls.api_url + '/master/savepost', postdata, httpOptions).pipe();
-  }
-
-  getpost(): Observable<any> {
-
-    return this.http.get(this.ls.api_url + '/master/getpost', httpOptions).pipe();
-  }
-
-  savedegree(degreedata: any): Observable<any> {
-
-    return this.http.post(this.ls.api_url + '/master/savedegree', degreedata, httpOptions).pipe();
-  }
-
-  getdegree(): Observable<any> {
-
-    return this.http.get(this.ls.api_url + '/master/getdegree', httpOptions).pipe();
-  }
 
   savemoduals(modual): Observable<any> {
 
@@ -185,6 +168,30 @@ export class MasterService {
     return flowstatusarr.join(',');
   }
 
+  getselectedcheckboxgroup2string(checkboxgroup: any []): string {
+    let flowstatusarr: any[] = [];
+    for (let i = 0; i < checkboxgroup.length; i++) {
+      if (checkboxgroup[i].checked == true) {
+        flowstatusarr.push(checkboxgroup[i].value);
+      }
+    }
+    return flowstatusarr.join(',');
+  }
+
+  string2checkboxgroup(checkboxgroup: any [], str: string): any [] {
+    var strarry = str.split(',');
+    for (let i = 0; i < strarry.length; i++) {
+      for (let j = 0; j < checkboxgroup.length; j++) {
+        if (checkboxgroup[j].value == strarry[i]) {
+          checkboxgroup[j].checked = true;
+          break;
+        }
+      }
+    }
+    console.log(checkboxgroup);
+    return checkboxgroup;
+  }
+
 
   loadlangjson(data: any): Observable<any> {
 
@@ -240,5 +247,18 @@ export class MasterService {
   getcompany(): Observable<any> {
 
     return this.http.get(this.ls.api_url + '/company/getcompany', httpOptions).pipe();
+  }
+  getenumsearchcount(queryitems): Observable<any> {
+
+    return this.http.post(this.ls.api_url + '/enumsearch/getenumsearchcount', queryitems, httpOptions).pipe();
+  }
+
+  getenumsearchbypageindex(queryitems): Observable<any> {
+
+    return this.http.post(this.ls.api_url + '/enumsearch/getenumsearchbypageindex', queryitems, httpOptions).pipe();
+  }
+  deleteenumbyid(enumcode): Observable<any> {
+
+    return this.http.post(this.ls.api_url + '/enum/deleteenumbyid', enumcode, httpOptions).pipe();
   }
 }

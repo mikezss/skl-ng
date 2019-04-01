@@ -1,0 +1,24 @@
+<app-skl-form 
+	formtitle="{{'enumquerytitle'|translate}}" 
+	[formcolnames]="queryitems" 
+	(action)="getquery($event)" 	
+	[ncolcount]=2   
+	[formdata]="querydata" 
+	[buttons]="[{'name':'reset','icon':'reload'},{'name':'search','icon':'search'}]"
+	(formdatachange)="formdatachange($event)">
+</app-skl-form>
+<app-skl-list   
+	listtitle="{{'enumquerylisttitle'|translate}}" 
+	[listdata]="listdata" 
+	[listcolnames]="listcolnames"  	
+	(linkAction)="edit($event)"  
+	[(pageIndex)]="pageindex" 
+	[(pageSize)]="pagesize" 
+	[total]="total" 
+	[loading]="loading" 
+	(refreshtable)="refreshtable($event)"
+	(listdatachange)="listdatachange($event)"
+	[listtype]="'query'"
+  (popconfirmAction)="edit($event)"
+	>
+</app-skl-list>

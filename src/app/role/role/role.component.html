@@ -14,7 +14,7 @@
 		<nz-tab  nzTitle="{{'rolemanagement'|translate}}">
 		<app-skl-form  formtitle="{{'rolemanagement'|translate}}"   [formcolnames]="formcolnames"
 		  (action)="dosubmit($event)" [formdata]="formdata" 
-		 ngutter=40 ncolcount=2   [buttons]="['save','delete']"></app-skl-form>
+		 ngutter=40 ncolcount=2   [buttons]="[{'name':'Save','icon':'save'},{'name':'Delete','icon':'delete'}]"></app-skl-form>
 		 </nz-tab>
       <nz-tab [nzTitle]="authorizationtabtitle">
       	<nz-row [nzGutter]="2">
@@ -49,7 +49,7 @@
       <nz-tab [nzTitle]="userroletabtitle">
 		        <app-skl-list   listtitle="{{'usermanagement'|translate}}" [listdata]="listdata"
 	[listcolnames]="listcolnames"
-	(action)="saveuserrole($event)" [buttons]="['save']"></app-skl-list>
+	(action)="saveuserrole($event)" [buttons]="[{'name':'Save','icon':'save'}]"></app-skl-list>
       </nz-tab>
        
     </nz-tabset>

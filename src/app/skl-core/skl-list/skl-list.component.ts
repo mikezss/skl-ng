@@ -32,6 +32,8 @@ export class SklListComponent implements OnInit {
   @Output() action: EventEmitter<any>;
   @Output() refreshtable: EventEmitter<any>;
   @Input() tablesize = 'small';
+  @Input() zBordered = false;
+  @Output() popconfirmAction: EventEmitter<any>;
 
 
 
@@ -41,6 +43,7 @@ export class SklListComponent implements OnInit {
     this.refreshtable = new EventEmitter();
     this.listdatachange = new EventEmitter();
     this.action = new EventEmitter();
+    this.popconfirmAction = new EventEmitter();
   }
 
   ngOnInit() {
@@ -161,6 +164,10 @@ export class SklListComponent implements OnInit {
 
   doAction(actionname) {
     this.action.emit(actionname);
+  }
+
+  confirm(data, value) {
+    this.popconfirmAction.emit({'data': data, 'colname': value});
   }
 
 }

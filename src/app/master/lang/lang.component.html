@@ -6,18 +6,18 @@
   (action)="getquery($event)"
   [ncolcount]=2
   [formdata]="querydata"
-  [buttons]="['reset','search']"
+  [buttons]="[{'name':'reset','icon':'reload'},{'name':'search','icon':'search'}]"
   (formdatachange)="formdatachange($event)">
 </app-skl-form>
 
 <app-skl-list  listtitle="{{'langsetting'|translate}}" [listdata]="listdata"
-	[listcolnames]="listcolnames" (action)="save($event)" [buttons]="['save','loadjson','updatejson']" [loading]="loading"
+	[listcolnames]="listcolnames" (action)="save($event)" [buttons]="[{'name':'Save','icon':'save'},{'name':'loadjson','icon':'import'},{'name':'updatejson','icon':'update'}]" [loading]="loading"
                [(pageIndex)]="pageindex" [(pageSize)]="pagesize" [total]="total" (refreshtable)="refreshtable($event)">
 </app-skl-list>
   </nz-tab>
   <nz-tab nzTitle="{{'projectpathsetting'|translate}}">
     <app-skl-form  formtitle=""   [formcolnames]="formcolnames"
                    (action)="saveprojectpath($event)" [formdata]="formdata"
-                   ngutter=40 ncolcount=2   [buttons]="['save']"></app-skl-form>
+                   ngutter=40 ncolcount=2   [buttons]="[{'name':'Save','icon':'save'}]"></app-skl-form>
   </nz-tab>
 </nz-tabset>

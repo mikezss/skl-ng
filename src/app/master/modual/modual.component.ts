@@ -69,7 +69,7 @@ export class ModualComponent implements OnInit {
     console.log(event);
     console.log(this.formdata);
 
-    if (event == 'save') {
+    if (event == 'Save') {
       this.ms.savemoduals(this.formdata).subscribe(data => {
         console.log(data);
         this.message.info('submit==>' + data.status);
@@ -122,7 +122,7 @@ export class ModualComponent implements OnInit {
   savemodualtemplate(event) {
 
 
-    if (event == 'save') {
+    if (event == 'Save') {
       this.ms.savemodualtemplate({
         'Modualid': this.selectedkey,
         'Flowtemplateid': this.modualtemplateformdata.Flowtemplateid,

@@ -15,7 +15,7 @@ const httpOptions = {
 
 @Injectable()
 export class UserService {
-
+  formdata: any = {};
   constructor(private ls: LoginService, private http: HttpClient) {
   }
 

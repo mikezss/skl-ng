@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { DegreeComponent } from './degree.component';
+import { EnumsearchComponent } from './enumsearch.component';
 
-describe('DegreeComponent', () => {
-  let component: DegreeComponent;
-  let fixture: ComponentFixture<DegreeComponent>;
+describe('EnumsearchComponent', () => {
+  let component: EnumsearchComponent;
+  let fixture: ComponentFixture<EnumsearchComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ DegreeComponent ]
+      declarations: [ EnumsearchComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(DegreeComponent);
+    fixture = TestBed.createComponent(EnumsearchComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

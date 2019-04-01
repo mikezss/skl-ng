@@ -15,7 +15,7 @@
       <nz-tab nzTitle="{{'orgmanagement'|translate}}">
 		        <app-skl-form formtitle="{{'orgmanagement'|translate}}"   [formcolnames]="formcolnames"
 				  (action)="dosubmit($event)" [formdata]="formdata" 
-				 ngutter=40 ncolcount=2   [buttons]="['save','delete']"></app-skl-form>
+				 ngutter=40 ncolcount=2   [buttons]="[{'name':'Save','icon':'save'},{'name':'Delete','icon':'delete'}]"></app-skl-form>
 				 
 				 <app-skl-list   listtitle="{{'orgleader'|translate}}" [listdata]="actiondata"
 					[listcolnames]="actioncolnames"    tablesize="small">

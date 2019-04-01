@@ -21,12 +21,12 @@
       <nz-tab [nzTitle]="modualmanagementtabtitle">	
 		<app-skl-form formtitle="{{'modualmanagement'|translate}}"   [formcolnames]="formcolnames"
 		  (action)="dosubmit($event)" [formdata]="formdata" 
-		 ngutter=40 ncolcount=2   [buttons]="['save','delete']"></app-skl-form>
+		 ngutter=40 ncolcount=2   [buttons]="[{'name':'Save','icon':'save'},{'name':'Delete','icon':'delete'}]"></app-skl-form>
 		</nz-tab>
 		<nz-tab [nzTitle]="modualtemplatetabtitle">
 			<app-skl-form  formtitle=""   [formcolnames]="modualtemplateformcolnames"
 		  (action)="savemodualtemplate($event)" [formdata]="modualtemplateformdata" 
-		 ngutter=40 ncolcount=2   [buttons]="['save','delete']"></app-skl-form>
+		 ngutter=40 ncolcount=2   [buttons]="[{'name':'Save','icon':'save'},{'name':'Delete','icon':'delete'}]"></app-skl-form>
 		</nz-tab>
 		</nz-tabset>
 </nz-content>

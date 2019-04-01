@@ -11,7 +11,7 @@
 		
 		<app-skl-form formtitle="{{'mantask'|translate}}"   [formcolnames]="manformcolnames"
 		  (action)="dosubmit($event)" [formdata]="manformdata" 
-		 ngutter=40 ncolcount=2    *ngIf="tasktype=='man'" [buttons]="['Save','Delete']" (formdatachange)="formdatachange($event)"></app-skl-form>
+		 ngutter=40 ncolcount=2    *ngIf="tasktype=='man'" [buttons]="[{'name':'Save','icon':'save'},{'name':'Delete','icon':'delete'}]" (formdatachange)="formdatachange($event)"></app-skl-form>
 		
 		<app-skl-list   listtitle="{{'action'|translate}}" [listdata]="manactiondata"
 			[listcolnames]="manactioncolnames"    [(fileList)]="manactionfileList" tablesize="small" *ngIf="tasktype=='man'">
@@ -25,7 +25,7 @@
 		 
 		<app-skl-form formtitle="{{'switchtask'|translate}}"   [formcolnames]="switchformcolnames"
 		  (action)="dosubmit($event)" [formdata]="switchformdata" 
-		 ngutter=40 ncolcount=2    *ngIf="tasktype=='switch'" [buttons]="['Save','Delete']"></app-skl-form>
+		 ngutter=40 ncolcount=2    *ngIf="tasktype=='switch'" [buttons]="[{'name':'Save','icon':'save'},{'name':'Delete','icon':'delete'}]"></app-skl-form>
 		
 		<app-skl-list   listtitle="{{'switch'|translate}}" [listdata]="switchactiondata"
 			[listcolnames]="switchactioncolnames"    [(fileList)]="switchactionfileList" tablesize="small" *ngIf="tasktype=='switch'">

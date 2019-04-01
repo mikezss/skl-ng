@@ -14,7 +14,7 @@
       <nz-tab [nzTitle]="usergroupmanagementtitle">
 		        <app-skl-form  formtitle="{{'usergroupmanagement'|translate}}"   [formcolnames]="formcolnames"
 				  (action)="dosubmit($event)" [formdata]="formdata" 
-				 ngutter=40 ncolcount=2   [buttons]="['save','delete']"></app-skl-form>
+				 ngutter=40 ncolcount=2   [buttons]="[{'name':'Save','icon':'save'},{'name':'Delete','icon':'delete'}]"></app-skl-form>
 				 
 				 
       </nz-tab>
@@ -50,7 +50,7 @@
       <nz-tab [nzTitle]="usergrouptabtitle">
 		        <app-skl-list    listtitle="{{'usermanagement'|translate}}" [listdata]="listdata"
 	[listcolnames]="listcolnames"
-	(action)="saveusergroup($event)" (listdatachange)="listdatachange($event)" [buttons]="['save']"></app-skl-list>
+	(action)="saveusergroup($event)" (listdatachange)="listdatachange($event)" [buttons]="[{'name':'Save','icon':'save'}]"></app-skl-list>
 				 
 				 
       </nz-tab>

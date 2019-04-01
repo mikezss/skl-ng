@@ -29,6 +29,9 @@ export class SklFormComponent implements OnInit {
   @Output() uploadcheck: EventEmitter<any>;
   @Output() linkAction: EventEmitter<any>;
   @Output() formdatachange: EventEmitter<any>;
+  @Output() uploadfilechange: EventEmitter<any>;
+
+  fileList: UploadFile[] = [];
 
   constructor(private ls: LoginService, private cs: CoreService, public translate: TranslateService, private nzI18nService: NzI18nService) {
     this.action = new EventEmitter();
@@ -36,6 +39,7 @@ export class SklFormComponent implements OnInit {
     this.uploadcheck = new EventEmitter();
     this.linkAction = new EventEmitter();
     this.formdatachange = new EventEmitter();
+    this.uploadfilechange = new EventEmitter();
   }
 
   ngOnInit() {
@@ -91,17 +95,19 @@ export class SklFormComponent implements OnInit {
   }
 
   beforeUpload = (file: UploadFile, fileList: UploadFile[]): boolean => {
-    // console.log(file);
-    // console.log(fileList);
-    this.uploadcheck.emit(file);
+
+    console.log(file);
+    console.log(fileList);
+    // fileList = fileList.concat(file);
+    // this.uploadcheck.emit(file);
     return false;
-  };
+  }
   beforeUploadlist = (file: UploadFile): boolean => {
     console.log(file);
     // console.log(fileList);
     // this.uploadcheck.emit(file);
     return false;
-  };
+  }
 
   outputdefault(inputvalue, defaultvalue) {
     // console.log(inputvalue);
@@ -117,6 +123,10 @@ export class SklFormComponent implements OnInit {
 
   doLink(data, colname) {
     this.linkAction.emit({'data': data, 'colname': colname});
+  }
+  uploadfilechange2(event){
+    console.log(event);
+    this.uploadfilechange.emit(event);
   }
 
 }

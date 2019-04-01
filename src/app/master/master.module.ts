@@ -3,8 +3,6 @@ import {SklCommonModule} from '../common/common.module';
 import {NgModule} from '@angular/core';
 import {RouterModule} from '@angular/router';
 import {TranslateModule} from '@ngx-translate/core';
-import {PostComponent} from './post/post.component';
-import {DegreeComponent} from './degree/degree.component';
 import {HttpClient, HttpParams} from '@angular/common/http';
 import {MasterService} from './master.service';
 import {NzMessageService} from 'ng-zorro-antd';
@@ -18,6 +16,7 @@ import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import {LangComponent} from './lang/lang.component';
 import {EnumComponent} from './enum/enum.component';
 import {CompanyComponent} from './company/company.component';
+import { EnumsearchComponent } from './enumsearch/enumsearch.component';
 export function createTranslateHttpLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, '../assets/i18n/', '.json');
 }
@@ -34,7 +33,7 @@ export function createTranslateHttpLoader(http: HttpClient) {
       }
     }),
   ],
-  declarations: [OrgtypeComponent, ModualComponent, PostComponent, DegreeComponent, OrgvaryComponent, LangComponent, EnumComponent, CompanyComponent],
+  declarations: [OrgtypeComponent, ModualComponent, OrgvaryComponent, LangComponent, EnumComponent, CompanyComponent, EnumsearchComponent],
   providers: [
     MasterService,
     NzMessageService,

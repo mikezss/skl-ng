@@ -36,11 +36,11 @@ export class EnumComponent implements OnInit {
     this.router.queryParams.subscribe(params => {
         console.log(params);
 
-        this.cs.getenumbyid({'enumcode': params.enumcode})
+        this.cs.getenumbyid({'Enumcode': params.Enumcode})
           .subscribe(data => {
             this.formdata = data;
           });
-        this.cs.getenumitem({'enumcode': params.enumcode})
+        this.cs.getenumitem({'Enumcode': params.Enumcode})
           .subscribe(data => {
             this.listdata = data;
           });
@@ -50,22 +50,6 @@ export class EnumComponent implements OnInit {
   }
 
   dosubmit(event) {
-    if (event === 'query') {
-      this.cs.getenumbyid({'enumcode': this.formdata.Enumcode})
-        .subscribe(data => {
-          if (data.status != 'false') {
-            this.formdata = data;
-          }
-
-        });
-      this.cs.getenumitem({'enumcode': this.formdata.Enumcode})
-        .subscribe(data => {
-          if (data != null) {
-            this.listdata = data;
-          }
-
-        });
-    } else {
       let navigationExtras: NavigationExtras = {
         queryParamsHandling: 'preserve',
         preserveFragment: true
@@ -74,25 +58,11 @@ export class EnumComponent implements OnInit {
         console.log(data);
           this.message.info('submit==>' + data.status);
       });
-    }
+
   }
 
   uploadcheck(event) {
     console.log(event);
-    for (const colname of this.formcolnames) {
-      if (colname.Controltype == 'upload') {
-        if (event.size / 1024 > colname.filesize) {
-          this.message.info('permitted file size is :' + colname.filesize);
-          break;
-        }
-
-        if (colname.fileList.length < colname.limitfileqty) {
-          colname.fileList.push(event);
-          break;
-        }
-      }
-    }
-
   }
 
   listdatachange(event) {

@@ -66,4 +66,8 @@ export class OrgService {
 
     return this.http.post(this.ls.api_url + '/master/getusersbyorgid', {'Orgid': orgid}, httpOptions).pipe();
   }
+  getallorgoptions(): Observable<any> {
+
+    return this.http.get(this.ls.api_url + '/master/getallorgoptions', httpOptions).pipe();
+  }
 }

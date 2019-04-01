@@ -97,7 +97,7 @@ export class MyflowComponent implements OnInit {
       for (let data1 of respons) {
         // data1.Routerlink=data1.Url;
         data1.Routerlink = '/task-trace';
-        data1.QueryParams = {'Mode': 'a', 'Flowinstid': data1.Fiid, 'Tiid': data1.Tiid, 'Url': data1.Url};
+        data1.QueryParams = {'Mode': 's', 'Flowinstid': data1.Fiid, 'Tiid': data1.Tiid, 'Url': data1.Url};
       }
       this.listdata = respons;
 
@@ -115,7 +115,7 @@ export class MyflowComponent implements OnInit {
       for (let data1 of respons) {
         // data1.Routerlink=data1.Url;
         data1.Routerlink = '/task-trace';
-        data1.QueryParams = {'Mode': 'a', 'Flowinstid': data1.Fiid, 'Tiid': data1.Tiid};
+        data1.QueryParams = {'Mode': 's', 'Flowinstid': data1.Fiid, 'Tiid': data1.Tiid};
       }
       this.listdata = respons;
     });

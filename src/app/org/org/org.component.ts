@@ -90,7 +90,7 @@ export class OrgComponent implements OnInit {
     for (let lds of this.actiondata) {
       leadersdata.push({'Orgid': this.formdata.Orgid, 'Userid': lds.Userid, 'Leadertype': lds.Leadertype});
     }
-    if (event == 'save') {
+    if (event == 'Save') {
       this.os.saveorgs(this.formdata, leadersdata).subscribe(data => {
         console.log(data);
         this.message.info('submit==>' + data.status);
@@ -147,6 +147,12 @@ export class OrgComponent implements OnInit {
       console.log(data);
       this.nodes = data;
     });
+
+    this.os.getallorgoptions().subscribe(data => {
+      console.log(data);
+      this.formcolnames[2].options = data;
+    });
+
   }
 
   saveorgpriviledge() {

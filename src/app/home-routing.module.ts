@@ -28,6 +28,7 @@ import {LangComponent} from './master/lang/lang.component';
 import {EnumComponent} from './master/enum/enum.component';
 import {CompanyComponent} from './master/company/company.component';
 import {PortalComponent} from './home/portal/portal.component';
+import {EnumsearchComponent} from './master/enumsearch/enumsearch.component';
 import {HomeComponent} from './home/home/home.component';
 
 const adminRoutes: Routes = [
@@ -66,6 +67,7 @@ const adminRoutes: Routes = [
           {path: 'company', component: CompanyComponent},
          
           {path: 'portal', component: PortalComponent},
+          {path: 'enumsearch', component: EnumsearchComponent},
 	   {path: 'lang', component: LangComponent}
         ]
       }

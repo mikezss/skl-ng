@@ -1,16 +1,22 @@
 <nz-layout>
   <nz-header >
+    <nz-row [nzGutter]="40">
+      <nz-col [nzSpan]="4">
     <div class="logo"><img src="/assets/angular.svg">
       <button nz-button [nzType]="'primary'" (click)="toggleCollapsed()" style="margin-bottom: 10px;">
         <i nz-icon type="bars"></i>
       </button>
     </div>
-
+      </nz-col>
+    <nz-col [nzSpan]="16">
     <app-skl-navigator [navigatormoduals]="navigatormoduals"
                        (onclicknavigator)="clicknavigator($event)"></app-skl-navigator>
+    </nz-col>
+
+      <nz-col [nzSpan]="4">
     <nz-dropdown class="help">
       <a nz-dropdown>
-        <ng-container>{{'help'|translate}}</ng-container><i nz-icon type="down"></i>
+        <ng-container>{{userid}}</ng-container><i nz-icon type="down"></i>
       </a>
       <ul nz-menu nzSelectable>
         <li nz-menu-item (click)="logout()"><i class="anticon anticon-logout"></i><ng-container>{{'logout'|translate}}</ng-container></li>
@@ -20,7 +26,8 @@
         <li nz-menu-item (click)="switchlang('Japanese')"><ng-container>{{'Japanese'|translate}}</ng-container></li>
       </ul>
     </nz-dropdown>
-
+      </nz-col>
+    </nz-row>
   </nz-header>
   <nz-layout>
     <nz-sider [nzCollapsed]="isCollapsed">

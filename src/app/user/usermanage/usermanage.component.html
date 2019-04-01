@@ -1,13 +1,13 @@
 <nz-tabset [(nzSelectedIndex)]="tabindex">
       <nz-tab  nzTitle="{{'usersearch'|translate}}">
-				<app-skl-form formtitle="{{'usermanagement'|translate}}" [formcolnames]="queryitems" (action)="getquery($event)" [ncolcount]=3 [buttons]="['reset','search']" [formdata]="querydata"></app-skl-form>
+				<app-skl-form formtitle="{{'usermanagement'|translate}}" [formcolnames]="queryitems" (action)="getquery($event)" [ncolcount]=3 [buttons]="[{'name':'reset','icon':'reload'},{'name':'search','icon':'search'}]" [formdata]="querydata"></app-skl-form>
 				<app-skl-list   listtitle="{{'userlist'|translate}}" [listdata]="listdata" [listcolnames]="listcolnames"  (linkAction)="edit($event)"  listtype="'query'"></app-skl-list>
 			</nz-tab>
 			
 			<nz-tab  nzTitle="{{'usermanagement'|translate}}">
 				<app-skl-form formtitle="{{'user'|translate}}"   [formcolnames]="formcolnames"
 		  	(action)="dosubmit($event)" [formdata]="formdata" 
-		 		ngutter=40 ncolcount=2    [buttons]="['save','delete']" [mode]="mode"></app-skl-form>
+		 		ngutter=40 ncolcount=2    [buttons]="[{'name':'Save','icon':'save'},{'name':'Delete','icon':'delete'}]" [mode]="mode"></app-skl-form>
 			</nz-tab>
 			
 			<nz-tab [nzTitle]="authorizationtabtitle">
@@ -42,7 +42,7 @@
       <nz-tab   nzTitle="{{'userimport'|translate}}">
 				<app-skl-form   formtitle="{{'userimport'|translate}}"   [formcolnames]="importformcolnames"
 		  	(action)="dosubmit($event)" [formdata]="importformdata" (uploadcheck)="uploadcheck($event)"
-		 		ngutter=40 ncolcount=1    [buttons]="['upload']" [mode]="mode"></app-skl-form>
+		 		ngutter=40 ncolcount=1    [buttons]="[{'name':'Upload','icon':'upload'}]" [mode]="mode"></app-skl-form>
 			</nz-tab>	
 			
 </nz-tabset>

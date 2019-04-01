@@ -1,5 +1,5 @@
 <app-skl-form formtitle="{{'flowmonitor'|translate}}" [formcolnames]="queryitems" (action)="getquery($event)"
-	[ncolcount]=2 [formdata]="querydata" [buttons]="['reset','search']"></app-skl-form>
+	[ncolcount]=2 [formdata]="querydata" [buttons]="[{'name':'reset','icon':'reload'},{'name':'search','icon':'search'}]"></app-skl-form>
 	
 <app-skl-list   listtitle="{{'flowmonitorlist'|translate}}" [listdata]="listdata" [listcolnames]="listcolnames"
 	(linkAction)="edit($event)"  [(pageIndex)]="pageindex" [(pageSize)]="pagesize" [total]="total" [loading]="loading" (refreshtable)="refreshtable($event)" listtype="'query'"></app-skl-list>

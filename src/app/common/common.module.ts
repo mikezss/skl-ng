@@ -14,6 +14,7 @@ import { EssenceNg2PrintModule } from 'essence-ng2-print';
 import { CKEditorModule } from 'ng2-ckeditor';
 import {PortalModule} from '@angular/cdk/portal';
 import {MatGridListModule} from '@angular/material/grid-list';
+import { LocalStorageService} from 'ngx-store';
 @NgModule({
   imports: [
     BrowserModule, BrowserAnimationsModule, FormsModule, ReactiveFormsModule, CommonModule,
@@ -25,7 +26,8 @@ import {MatGridListModule} from '@angular/material/grid-list';
     BrowserModule, BrowserAnimationsModule, FormsModule, ReactiveFormsModule, CommonModule,
     RouterModule, NgZorroAntdModule, HttpModule, HttpClientModule, TranslateModule, EssenceNg2PrintModule, CKEditorModule, PortalModule,
     MatGridListModule
-  ]
+  ],
+  providers: [LocalStorageService]
 })
 export class SklCommonModule {
 }

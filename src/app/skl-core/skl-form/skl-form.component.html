@@ -3,28 +3,28 @@
     <ng-container *ngIf="mode=='a' || mode=='e'">
 
       <nz-button-group>
-        <button *ngFor="let button of buttons" nz-button [nzType]="'primary'" (click)="doAction(button)">
-          <ng-container [ngSwitch]="button">
+        <button *ngFor="let button of buttons" nz-button [nzType]="'primary'" (click)="doAction(button.name)">
+          <ng-container [ngSwitch]="button.name">
             <i *ngSwitchCase="'query'" nz-icon [type]="'search'"  ></i>
-            <i *ngSwitchCase="'reset'"   nz-icon [type]="'reload'" [theme]="'fill'"></i>
-            <i *ngSwitchCase="'pass'"  nz-icon [type]="'next'" [theme]="'fill'"></i>
-            <i *ngSwitchCase="'return'"  nz-icon [type]="'back'" [theme]="'fill'"></i>
-            <i *ngSwitchDefault   nz-icon type="{{button}}" ></i>
+            <i *ngSwitchCase="'reset'"   nz-icon [type]="'reload'"></i>
+            <i *ngSwitchCase="'pass'"  nz-icon [type]="'next'" ></i>
+            <i *ngSwitchCase="'return'"  nz-icon [type]="'back'" ></i>
+            <i *ngSwitchDefault   nz-icon type="{{button.icon}}" ></i>
           </ng-container>
-          <ng-container>{{button|translate}}</ng-container>
+          <ng-container>{{button.name|translate}}</ng-container>
         </button>
       </nz-button-group>
     </ng-container>
   </ng-template>
   <nz-row [nzGutter]="ngutter">
-    <nz-col [nzSpan]="24/ncolcount" *ngFor="let colname of formcolnames">
+    <nz-col [nzSpan]="colname.span?24/colname.span:24/ncolcount" *ngFor="let colname of formcolnames">
       <nz-row [nzGutter]="ngutter">
-        <nz-col [nzSpan]="8">
+        <nz-col [nzSpan]="colname.span?6/ncolcount:6" *ngIf="colname.notdisplaycolname?false:true">
           <ng-container *ngIf="!colname.NotDisplayed">
-            <label [attr.for]="colname.Controlname">{{colname.Controlname|translate}}</label>
+            <label [attr.for]="colname.Controlname" class="colname.required?'red':''">{{colname.Controlname|translate}}</label>
           </ng-container>
         </nz-col>
-        <nz-col [nzSpan]="16">
+        <nz-col [nzSpan]="colname.notdisplaycolname?24:(colname.span?24-6/ncolcount:18)">
           <ng-container *ngIf="mode=='a'">
             <ng-container [ngSwitch]="colname.Controltype">
               <ckeditor *ngSwitchCase="'richtexteditor'"
@@ -74,9 +74,8 @@
                                (ngModelChange)="formdataonchange(colname.Controlname)"
                                [nzFormat]="nzformat" [nzDisabledDate]="disabledDate" [nzDisabledTime]="disabledRangeTime" ></nz-range-picker>
 
-              <nz-upload *ngSwitchCase="'upload'" [(nzFileList)]="colname.fileList" [nzBeforeUpload]="beforeUpload"
-                         [nzFileType]="colname.filetype" [nzMultiple]="colname.ismultiple?colname.ismultiple:false"
-                         [nzSize]="colname.filesize" [nzLimit]="colname.limit?colname.limitfileqty:0">
+              <nz-upload *ngSwitchCase="'upload'" [(nzFileList)]="colname.fileList" (nzChange)="uploadfilechange2($event)"
+              >
                 <button nz-button>
                   <i class="anticon anticon-upload"></i>
                   <ng-container >{{'Selectfile'|translate}}</ng-container>

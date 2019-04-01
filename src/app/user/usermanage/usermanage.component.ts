@@ -47,15 +47,15 @@ export class UsermanageComponent implements OnInit {
 
   ngOnInit() {
     this.queryitems = [
-      {Controlname: 'Userid', Controltype: 'textbox'},
-      {Controlname: 'Username', Controltype: 'textbox'},
+      {'Controlname': 'Userid', 'Controltype': 'textbox'},
+      {'Controlname': 'Username', 'Controltype': 'textbox'},
       {
         'Controlname': 'Userlevel', 'Controltype': 'select',
         'options': [], 'nzMode': 'default', 'datasource': '/assets/userlevel.json'
       },
       {
-        Controlname: 'Expired',
-        Controltype: 'radiogroup',
+        'Controlname': 'Expired',
+        'Controltype': 'radiogroup',
         'radiogroup': [],
         'datasource': '/assets/expired.json'
       }
@@ -63,15 +63,15 @@ export class UsermanageComponent implements OnInit {
       {Controlname: 'Orgid', Controltype: 'treeselect', 'nodes': []}
     ];
     this.listcolnames = [
-      {Controlname: 'Userid', Controltype: 'label'},
-      {Controlname: 'Username', Controltype: 'label'},
-      {Controlname: 'Userlevel', Controltype: 'label'},
-      {Controlname: 'Orgid', Controltype: 'label'},
-      {Controlname: 'Postid', Controltype: 'label'},
-      {Controlname: 'View', Controltype: 'linkAction'},
-      {Controlname: 'Edit', Controltype: 'linkAction'},
-      {Controlname: 'Resetpassword', Controltype: 'linkAction'},
-      {Controlname: 'Authorization', Controltype: 'linkAction'}
+      {'Controlname': 'Userid', 'Controltype': 'label'},
+      {'Controlname': 'Username', 'Controltype': 'label'},
+      {'Controlname': 'Userlevel', 'Controltype': 'label'},
+      {'Controlname': 'Orgid', 'Controltype': 'label'},
+      {'Controlname': 'Postid', 'Controltype': 'label'},
+      {'Controlname': 'View', 'Controltype': 'linkAction'},
+      {'Controlname': 'Edit', 'Controltype': 'linkAction'},
+      {'Controlname': 'Resetpassword', 'Controltype': 'linkAction'},
+      {'Controlname': 'Authorization', 'Controltype': 'linkAction'}
     ];
     this.formcolnames = [
       {'Controlname': 'Userid', 'Controltype': 'textbox'},
@@ -134,9 +134,18 @@ export class UsermanageComponent implements OnInit {
       this.ms.getuser(this.querydata).subscribe(data => {
         console.log(data);
         this.listdata = data;
-        for (const ld of this.listdata) {
+        /*for (let ld of this.listdata) {
           ld.Editable = true;
-        }
+          ld.key = i;
+        }*/
+        this.listdata.forEach((val, idx, array) => {
+          // val: 当前值
+          val.Editable = true;
+          // idx：当前index
+          val.key = String(idx) ;
+          // array: Array
+        });
+        console.log(this.listdata);
       });
     }
   }
@@ -177,7 +186,7 @@ export class UsermanageComponent implements OnInit {
     console.log(event);
 
 
-    if (event == 'save') {
+    if (event == 'Save') {
       this.ms.saveuser(this.formdata).subscribe(data => {
         console.log(data);
         this.message.info('submit==>' + data.status);
@@ -186,7 +195,7 @@ export class UsermanageComponent implements OnInit {
         }
       });
     }
-    if (event == 'delete') {
+    if (event == 'Delete') {
       this.ms.deleteuserbyid({'Userid': this.formdata.Userid}).subscribe(data => {
         console.log(data);
         this.message.info('submit==>' + data.status);
@@ -196,7 +205,7 @@ export class UsermanageComponent implements OnInit {
       });
 
     }
-    if (event == 'upload') {
+    if (event == 'Upload') {
       console.log(this.importformcolnames[0].fileList);
       const formData = new FormData();
       formData.append('filelist', this.importformcolnames[0].fileList[0]);
