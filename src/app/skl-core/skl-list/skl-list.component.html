@@ -105,7 +105,7 @@
               <ng-container *ngIf="data.Editable">{{colname.Controlname}}</ng-container>
             </a>
             <a nz-popconfirm *ngSwitchCase="'popconfirm'"  [nzTitle]="colname.poptitle" (nzOnConfirm)="confirm(data,colname.Controlname)" >
-              {{colname.Controlname}}
+              <ng-container *ngIf="data[colname.Controlname]=='Editable'">{{colname.Controlname}}</ng-container>
             </a>
 
             <span *ngSwitchCase="'label'">{{data[colname.Controlname]}}</span>

@@ -62,6 +62,7 @@ export class EnumsearchComponent implements OnInit {
           data1.Routerlink = '/enum';
           data1.QueryParams = {'Mode': 's', 'Enumcode': data1.Enumcode};
           data1.Editable = true;
+          data1.Delete = 'Editable';
         }
         this.listdata = respons;
         this.loading = false;
@@ -104,6 +105,7 @@ export class EnumsearchComponent implements OnInit {
         data1.Routerlink = '/enum';
         data1.QueryParams = {'Mode': 's', 'Enumcode': data1.Enumcode};
         data1.Editable = true;
+        data1.Delete = 'Editable';
       }
       this.listdata = respons;
       this.loading = false;

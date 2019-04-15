@@ -54,8 +54,8 @@ export class MyflowComponent implements OnInit {
       {'Controlname': 'Flowstarttime', 'Controltype': 'label'},
       {'Controlname': 'Flowfinishtime', 'Controltype': 'label'},
       {'Controlname': 'Flowstatusname', 'Controltype': 'label'},
-      {'Controlname': 'cancel', 'Controltype': 'linkAction'},
-      {'Controlname': 'skip', 'Controltype': 'linkAction'},
+      {'Controlname': 'cancel', 'Controltype': 'popconfirm', 'poptitle': 'are you confirm to cancel?'},
+      {'Controlname': 'skip', 'Controltype': 'popconfirm', 'poptitle': 'are you confirm to skip?'},
       {'Controlname': 'restart', 'Controltype': 'linkAction'}
     ];
 
@@ -98,6 +98,13 @@ export class MyflowComponent implements OnInit {
         // data1.Routerlink=data1.Url;
         data1.Routerlink = '/task-trace';
         data1.QueryParams = {'Mode': 's', 'Flowinstid': data1.Fiid, 'Tiid': data1.Tiid, 'Url': data1.Url};
+        if (data1.Flowstatus == '0') {
+          data1.cancel = 'Editable';
+        }
+        if (data1.Supportskip) {
+          data1.skip = 'Editable';
+        }
+
       }
       this.listdata = respons;
 
@@ -116,6 +123,12 @@ export class MyflowComponent implements OnInit {
         // data1.Routerlink=data1.Url;
         data1.Routerlink = '/task-trace';
         data1.QueryParams = {'Mode': 's', 'Flowinstid': data1.Fiid, 'Tiid': data1.Tiid};
+        if (data1.Flowstatus == '0') {
+          data1.cancel = 'Editable';
+        }
+        if (data1.Supportskip) {
+          data1.skip = 'Editable';
+        }
       }
       this.listdata = respons;
     });

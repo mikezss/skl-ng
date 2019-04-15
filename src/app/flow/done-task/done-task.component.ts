@@ -60,7 +60,7 @@ export class DoneTaskComponent implements OnInit {
   getquery(event) {
 
     console.log(event);
-    if ( event == 'search') {
+    if (event == 'search') {
       this.refresh();
     } else {
       this.reset();
@@ -76,15 +76,19 @@ export class DoneTaskComponent implements OnInit {
   refresh() {
     this.querydata.Caller = this.ls.userid;
     this.es.getdonetask(this.querydata).subscribe(data => {
-      let respons: any[] = [];
-      respons = data;
-      for (let data1 of respons) {
-        // <a [routerLink]="['/product']" [queryParams]="{id:1}"></a>
-        // data1.Routerlink=data1.Url;
-        data1.Routerlink = '/task-trace';
-        data1.QueryParams = {'Mode': 's', 'Flowinstid': data1.Fiid, 'Tiid': data1.Tiid, 'Url': data1.Url};
+      if ( data.status == 'false') {
+        this.message.info(data.result);
+      } else {
+        let respons: any[] = [];
+        respons = data;
+        for (let data1 of respons) {
+          // <a [routerLink]="['/product']" [queryParams]="{id:1}"></a>
+          // data1.Routerlink=data1.Url;
+          data1.Routerlink = '/task-trace';
+          data1.QueryParams = {'Mode': 's', 'Flowinstid': data1.Fiid, 'Tiid': data1.Tiid, 'Url': data1.Url};
+        }
+        this.listdata = respons;
       }
-      this.listdata = respons;
 
     });
   }
