@@ -3,7 +3,7 @@ import {Observable} from 'rxjs/Observable';
 import {HttpHeaders} from '@angular/common/http';
 import {HttpClient} from '@angular/common/http';
 import {catchError, retry} from 'rxjs/operators';
-
+import {NzMessageService} from 'ng-zorro-antd';
 const httpOptions = {
   headers: new HttpHeaders({
     'Content-Type': 'application/json',
@@ -57,6 +57,20 @@ export class LoginService {
 
   titlecase(content) {
     return content.substr(0, 1).toLocaleUpperCase() + content.substr(1);
+  }
+  checkrequired(formcolnames: any[], formdata: {}, message: NzMessageService){
+    var isok = true;
+    for (let colname of formcolnames){
+      if (colname.required != 'undefined' && colname.required == true){
+        if( formdata[colname.Controlname] == null || formdata[colname.Controlname] == 'undefined'|| formdata[colname.Controlname] =='' || formdata[colname.Controlname] =='NaN'){
+          message.error(colname.Controlname + ' is required');
+          message.warning('标识红色的项目必须输入！');
+          isok = false;
+          return isok;
+        }
+      }
+    }
+    return isok;
   }
 
 

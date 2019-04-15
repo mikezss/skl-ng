@@ -21,7 +21,7 @@
       <nz-row [nzGutter]="ngutter">
         <nz-col [nzSpan]="colname.span?6/ncolcount:6" *ngIf="colname.notdisplaycolname?false:true">
           <ng-container *ngIf="!colname.NotDisplayed">
-            <label [attr.for]="colname.Controlname" class="colname.required?'red':''">{{colname.Controlname|translate}}</label>
+            <label [attr.for]="colname.Controlname" [class]="colname.required?'red':''">{{colname.Controlname|translate}}</label>
           </ng-container>
         </nz-col>
         <nz-col [nzSpan]="colname.notdisplaycolname?24:(colname.span?24-6/ncolcount:18)">
@@ -132,7 +132,7 @@
           </ng-container>
           <ng-container *ngIf="mode=='e' && colname.NotEditable"><input [(ngModel)]="formdata[colname.Controlname]"
                                                                         nz-input
-                                                                        [disabled]="colname.NotEditable?true:false"
+                                                                        [disabled]="false"
                                                                         [required]="colname.required?true:false"
                                                                         (ngModelChange)="formdataonchange(colname.Controlname)">
           </ng-container>
