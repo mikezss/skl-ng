@@ -18,13 +18,13 @@
   </ng-template>
   <nz-row [nzGutter]="ngutter">
     <nz-col [nzSpan]="colname.span?24/colname.span:24/ncolcount" *ngFor="let colname of formcolnames">
-      <nz-row [nzGutter]="ngutter">
-        <nz-col [nzSpan]="colname.span?6/ncolcount:6" *ngIf="colname.notdisplaycolname?false:true">
+      <nz-row [nzGutter]="ngutter"  >
+        <nz-col [nzSpan]="colname.span?10/ncolcount:10" *ngIf="colname.notdisplaycolname?false:true">
           <ng-container *ngIf="!colname.NotDisplayed">
             <label [attr.for]="colname.Controlname" ><ng-container *ngIf="mode=='a'&&colname.required"><label class="red">*</label></ng-container>{{colname.Controlname|translate}}</label>
           </ng-container>
         </nz-col>
-        <nz-col [nzSpan]="colname.notdisplaycolname?24:(colname.span?24-6/ncolcount:18)">
+        <nz-col [nzSpan]="colname.notdisplaycolname?24:(colname.span?24-10/ncolcount:14)">
           <ng-container *ngIf="mode=='a'|| mode=='as'">
             <ng-container [ngSwitch]="colname.Controltype">
               <ckeditor *ngSwitchCase="'richtexteditor'"
@@ -73,14 +73,15 @@
                                [nzDisabled]="(mode=='as'|| colname.NotEditable)?true:false" [nzShowTime]="{ nzFormat: 'HH:mm' }"
                                (ngModelChange)="formdataonchange(colname.Controlname)"
                                [nzFormat]="nzformat" [nzDisabledDate]="disabledDate" [nzDisabledTime]="disabledRangeTime" ></nz-range-picker>
-
-              <nz-upload *ngSwitchCase="'upload'" [(nzFileList)]="colname.fileList" (nzChange)="uploadfilechange2($event)"
+              <ng-container *ngSwitchCase="'upload'">
+              <nz-upload *ngIf="mode!='as'"  [(nzFileList)]="colname.fileList" (nzChange)="uploadfilechange2($event)"
               >
                 <button nz-button>
                   <i class="anticon anticon-upload"></i>
                   <ng-container >{{'Selectfile'|translate}}</ng-container>
                 </button>
               </nz-upload>
+              </ng-container>
               <nz-select *ngSwitchCase="'select'" style="width: 100%;" [(ngModel)]="formdata[colname.Controlname]"
                          [nzPlaceHolder]="'choose option'" nzAllowClear
                          [nzMode]="outputdefault(colname.nzMode,'default')"
