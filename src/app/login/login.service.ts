@@ -4,6 +4,8 @@ import {HttpHeaders} from '@angular/common/http';
 import {HttpClient} from '@angular/common/http';
 import {catchError, retry} from 'rxjs/operators';
 import {NzMessageService} from 'ng-zorro-antd';
+import {TranslateService} from '@ngx-translate/core';
+
 const httpOptions = {
   headers: new HttpHeaders({
     'Content-Type': 'application/json',
@@ -20,7 +22,7 @@ export class LoginService {
   userid = '';
   lang = 'Chinese';
 
-  constructor(private http: HttpClient) {
+  constructor(public translate: TranslateService, private http: HttpClient) {
   }
 
   loginCheck(username, password, companycode): Observable<any> {
@@ -58,15 +60,30 @@ export class LoginService {
   titlecase(content) {
     return content.substr(0, 1).toLocaleUpperCase() + content.substr(1);
   }
-  checkrequired(formcolnames: any[], formdata: {}, message: NzMessageService){
+
+  checkrequired(formcolnames: any[], formdata: {}, message: NzMessageService) {
     var isok = true;
-    for (let colname of formcolnames){
-      if (colname.required != 'undefined' && colname.required == true){
-        if( formdata[colname.Controlname] == null || formdata[colname.Controlname] == 'undefined'|| formdata[colname.Controlname] =='' || formdata[colname.Controlname] =='NaN'){
-          message.error(colname.Controlname + ' is required');
-          message.warning('��ʶ��ɫ����Ŀ�������룡');
-          isok = false;
-          return isok;
+    for (let colname of formcolnames) {
+      if (colname.required != 'undefined' && colname.required == true) {
+        if (colname.Controltype == 'upload') {
+          if (colname.fileList.length < 1) {
+            this.translate.get(colname.Controlname).subscribe(value => {
+              message.error('请选择'+ value + '文件！');
+            });
+            isok = false;
+            return isok;
+          }
+        } else {
+          if (formdata[colname.Controlname] == null || formdata[colname.Controlname] == 'undefined' || formdata[colname.Controlname] == '' || formdata[colname.Controlname] == 'NaN') {
+
+            this.translate.get(colname.Controlname).subscribe(value => {
+              message.error(value + ' ,必须输入！');
+            });
+
+            message.warning('标识为红色星号的项目必须输入！');
+            isok = false;
+            return isok;
+          }
         }
       }
     }

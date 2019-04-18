@@ -21,11 +21,11 @@
       <nz-row [nzGutter]="ngutter">
         <nz-col [nzSpan]="colname.span?6/ncolcount:6" *ngIf="colname.notdisplaycolname?false:true">
           <ng-container *ngIf="!colname.NotDisplayed">
-            <label [attr.for]="colname.Controlname" [class]="colname.required?'red':''">{{colname.Controlname|translate}}</label>
+            <label [attr.for]="colname.Controlname" ><ng-container *ngIf="mode=='a'&&colname.required"><label class="red">*</label></ng-container>{{colname.Controlname|translate}}</label>
           </ng-container>
         </nz-col>
         <nz-col [nzSpan]="colname.notdisplaycolname?24:(colname.span?24-6/ncolcount:18)">
-          <ng-container *ngIf="mode=='a'">
+          <ng-container *ngIf="mode=='a'|| mode=='as'">
             <ng-container [ngSwitch]="colname.Controltype">
               <ckeditor *ngSwitchCase="'richtexteditor'"
                 [(ngModel)]="formdata[colname.Controlname]"
@@ -37,14 +37,14 @@
               </ckeditor>
               <button nz-button *ngSwitchCase="'button'" [nzType]="'primary'" (click)="formdataonchange(colname.Controlname)"><ng-container>{{colname.Controlname|translate}}</ng-container></button>
               <label nz-checkbox *ngSwitchCase="'checkbox'" [(ngModel)]="formdata[colname.Controlname]"
-                     [nzDisabled]="colname.NotEditable?true:false"
+                     [nzDisabled]="(mode=='as'|| colname.NotEditable)?true:false"
                      (ngModelChange)="formdataonchange(colname.Controlname)"></label>
               <nz-checkbox-group *ngSwitchCase="'checkboxgroup'" [(ngModel)]="colname.checkboxgroup"
-                                 [nzDisabled]="colname.NotEditable?true:false"
+                                 [nzDisabled]="(mode=='as'|| colname.NotEditable)?true:false"
                                  (ngModelChange)="formdataonchange(colname.Controlname)"></nz-checkbox-group>
               <nz-radio-group *ngSwitchCase="'radiogroup'" [(ngModel)]="formdata[colname.Controlname]"
                               (ngModelChange)="formdataonchange(colname.Controlname)"
-                              [nzDisabled]="colname.NotEditable?true:false">
+                              [nzDisabled]="(mode=='as'|| colname.NotEditable)?true:false">
                             <span *ngFor="let option of colname.radiogroup">
                                 <label nz-radio [nzValue]="option.value">
                                     <span>{{option.label|translate}}</span>
@@ -52,25 +52,25 @@
                             </span>
               </nz-radio-group>
               <label *ngSwitchCase="'radio'" nz-radio [(ngModel)]="formdata[colname.Controlname]"
-                     [nzDisabled]="colname.NotEditable?true:false"
+                     [nzDisabled]="(mode=='as'|| colname.NotEditable)?true:false"
                      (ngModelChange)="formdataonchange(colname.Controlname)"></label>
               <nz-date-picker *ngSwitchCase="'datepicker'" [(ngModel)]="formdata[colname.Controlname]"
                               [nzPlaceHolder]="'Select date'"
-                              [nzDisabled]="colname.NotEditable?true:false"
+                              [nzDisabled]="(mode=='as'|| colname.NotEditable)?true:false"
                               (ngModelChange)="formdataonchange(colname.Controlname)"></nz-date-picker>
-              <nz-month-picker   *ngSwitchCase="'monthpicker'" [(ngModel)]="formdata[colname.Controlname]"   (ngModelChange)="formdataonchange(colname.Controlname)" [nzDisabled]="colname.NotEditable?true:false"></nz-month-picker>
-              <nz-year-picker   *ngSwitchCase="'yearpicker'" [(ngModel)]="formdata[colname.Controlname]"   (ngModelChange)="formdataonchange(colname.Controlname)" [nzDisabled]="colname.NotEditable?true:false"></nz-year-picker>
-              <nz-week-picker   *ngSwitchCase="'weekpicker'" [(ngModel)]="formdata[colname.Controlname]"   (ngModelChange)="formdataonchange(colname.Controlname)" [nzDisabled]="colname.NotEditable?true:false"></nz-week-picker>
+              <nz-month-picker   *ngSwitchCase="'monthpicker'" [(ngModel)]="formdata[colname.Controlname]"   (ngModelChange)="formdataonchange(colname.Controlname)" [nzDisabled]="(mode=='as'|| colname.NotEditable)?true:false"></nz-month-picker>
+              <nz-year-picker   *ngSwitchCase="'yearpicker'" [(ngModel)]="formdata[colname.Controlname]"   (ngModelChange)="formdataonchange(colname.Controlname)" [nzDisabled]="(mode=='as'|| colname.NotEditable)?true:false"></nz-year-picker>
+              <nz-week-picker   *ngSwitchCase="'weekpicker'" [(ngModel)]="formdata[colname.Controlname]"   (ngModelChange)="formdataonchange(colname.Controlname)" [nzDisabled]="(mode=='as'|| colname.NotEditable)?true:false"></nz-week-picker>
 
               <nz-input-number *ngSwitchCase="'number'" [(ngModel)]="formdata[colname.Controlname]"
                                [nzMin]="colname.minvalue" [nzMax]="colname.maxvalue" [nzStep]="colname.stepvalue"
-                               [nzDisabled]="colname.NotEditable?true:false"
+                               [nzDisabled]="(mode=='as'|| colname.NotEditable)?true:false"
                                (ngModelChange)="formdataonchange(colname.Controlname)"></nz-input-number>
               <nz-time-picker *ngSwitchCase="'timepicker'" [(ngModel)]="formdata[colname.Controlname]"
-                              [nzDisabled]="colname.NotEditable?true:false"
+                              [nzDisabled]="(mode=='as'|| colname.NotEditable)?true:false"
                               (ngModelChange)="formdataonchange(colname.Controlname)"></nz-time-picker>
               <nz-range-picker *ngSwitchCase="'rangepicker'" [(ngModel)]="formdata[colname.Controlname]"
-                               [nzDisabled]="colname.NotEditable?true:false" [nzShowTime]="{ nzFormat: 'HH:mm' }"
+                               [nzDisabled]="(mode=='as'|| colname.NotEditable)?true:false" [nzShowTime]="{ nzFormat: 'HH:mm' }"
                                (ngModelChange)="formdataonchange(colname.Controlname)"
                                [nzFormat]="nzformat" [nzDisabledDate]="disabledDate" [nzDisabledTime]="disabledRangeTime" ></nz-range-picker>
 
@@ -85,7 +85,7 @@
                          [nzPlaceHolder]="'choose option'" nzAllowClear
                          [nzMode]="outputdefault(colname.nzMode,'default')"
                          (ngModelChange)="formdataonchange(colname.Controlname)" nzShowSearch
-                         [nzDisabled]="colname.NotEditable?true:false">
+                         [nzDisabled]="(mode=='as'|| colname.NotEditable)?true:false">
                 <nz-option *ngFor="let option of colname.options" [nzLabel]="option.label" [nzValue]="option.value"
                            [nzDisabled]="option.disabled"></nz-option>
               </nz-select>
@@ -93,7 +93,7 @@
                          [nzPlaceHolder]="'choose option'" nzAllowClear
                          [nzMode]="outputdefault(colname.nzMode,'default')"
                          (ngModelChange)="formdataonchange(colname.Controlname)"
-                         [nzDisabled]="colname.NotEditable?true:false">
+                         [nzDisabled]="(mode=='as'|| colname.NotEditable)?true:false">
                 <nz-option *ngFor="let option of colname.options" [nzLabel]="option.label" [nzValue]="option.value"
                            [nzDisabled]="option.disabled"></nz-option>
               </nz-select>
@@ -101,7 +101,7 @@
                               [(ngModel)]="formdata[colname.Controlname]" [nzNodes]="colname.nodes"
                               [nzPlaceHolder]="'choose option'" [nzShowSearch]="'true'" [nzAllowClear]="'true'"
                               [nzShowLine]="'true'" [nzDefaultExpandAll]="'false'" [nzSize]="'small'"
-                              [nzDisabled]="colname.NotEditable?true:false"
+                              [nzDisabled]="(mode=='as'|| colname.NotEditable)?true:false"
                               (ngModelChange)="formdataonchange(colname.Controlname)">
               </nz-tree-select>
               <ng-container *ngSwitchCase="'atcomplete'">
@@ -112,19 +112,28 @@
               <a *ngSwitchCase="'linkAction'" (click)="doLink(formdata)">{{formdata[colname.Controlname]}}</a>
               <span *ngSwitchCase="'label'">{{formdata[colname.Controlname]}}</span>
               <textarea *ngSwitchCase="'textarea'" [(ngModel)]="formdata[colname.Controlname]" [rows]="colname.rows"
-                        nz-input [placeholder]="''" (ngModelChange)="formdataonchange(colname.Controlname)"></textarea>
+                        nz-input [placeholder]="''" (ngModelChange)="formdataonchange(colname.Controlname)"
+                        [disabled]="(mode=='as'|| colname.NotEditable)?true:false"></textarea>
               <ng-container *ngSwitchDefault>
                 <input *ngIf="!colname.NotDisplayed" [(ngModel)]="formdata[colname.Controlname]" nz-input
-                       [disabled]="colname.NotEditable?true:false" [required]="colname.required?true:false"
+                       [disabled]="(mode=='as'|| colname.NotEditable)?true:false" [required]="colname.required?true:false"
                        (ngModelChange)="formdataonchange(colname.Controlname)">
               </ng-container>
             </ng-container>
           </ng-container>
+
           <ng-container *ngIf="mode=='s'">{{formdata[colname.Controlname]}}
             <nz-upload *ngIf="colname.Controltype=='upload'" [(nzFileList)]="colname.fileList"
                        [nzShowButton]="'false'"></nz-upload>
 
           </ng-container>
+
+          <ng-container *ngIf="mode=='as'">
+            <nz-upload *ngIf="colname.Controltype=='upload'" [(nzFileList)]="colname.fileList"
+                       [nzShowButton]="'false'"></nz-upload>
+
+          </ng-container>
+
           <ng-container *ngIf="mode=='e' && !colname.NotEditable">{{formdata[colname.Controlname]}}
             <nz-upload *ngIf="colname.Controltype=='upload'" [(nzFileList)]="colname.fileList"
                        [nzShowButton]="'false'"></nz-upload>

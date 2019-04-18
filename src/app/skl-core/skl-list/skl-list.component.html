@@ -48,7 +48,7 @@
       </td>
       <td *ngIf="listtype=='query'">{{(i+1)}}</td>
       <td *ngFor="let colname of listcolnames">
-        <ng-container *ngIf="mode=='a'">
+        <ng-container *ngIf="mode=='a'|| mode=='as'">
           <ng-container [ngSwitch]="colname.Controltype">
             <label nz-checkbox *ngSwitchCase="'checkbox'" [(ngModel)]="data[colname.Controlname]"
                    [nzDisabled]="colname.NotEditable?true:false"
@@ -102,10 +102,10 @@
             <a *ngSwitchCase="'routerLink'" [routerLink]="data.Routerlink" [queryParams]="data.QueryParams"
                mat-menu-item>{{data[colname.Controlname]}}</a>
             <a *ngSwitchCase="'linkAction'" (click)="doLink(data,colname.Controlname)">
-              <ng-container *ngIf="data.Editable">{{colname.Controlname}}</ng-container>
+              <ng-container *ngIf="mode!='as' && data.Editable">{{colname.Controlname}}</ng-container>
             </a>
             <a nz-popconfirm *ngSwitchCase="'popconfirm'"  [nzTitle]="colname.poptitle" (nzOnConfirm)="confirm(data,colname.Controlname)" >
-              <ng-container *ngIf="data[colname.Controlname]=='Editable'">{{colname.Controlname}}</ng-container>
+              <ng-container *ngIf="mode!='as' && data[colname.Controlname]=='Editable'">{{colname.Controlname}}</ng-container>
             </a>
 
             <span *ngSwitchCase="'label'">{{data[colname.Controlname]}}</span>
