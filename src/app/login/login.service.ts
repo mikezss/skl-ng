@@ -68,7 +68,7 @@ export class LoginService {
         if (colname.Controltype == 'upload') {
           if (colname.fileList.length < 1) {
             this.translate.get(colname.Controlname).subscribe(value => {
-              message.error('请选择'+ value + '文件！');
+              message.error('请选择' + value + '文件！');
             });
             isok = false;
             return isok;
@@ -85,6 +85,26 @@ export class LoginService {
             return isok;
           }
         }
+      }
+    }
+    return isok;
+  }
+
+  checkrequiredlist(listcolnames: any[], listdata: any[], message: NzMessageService) {
+    var isok = true;
+    for (let colname of listcolnames) {
+      if (colname.required != 'undefined' && colname.required == true) {
+        for (let data of listdata) {
+          if (data[colname.Controlname] == null || data[colname.Controlname] == 'undefined' || data[colname.Controlname] == '' || data[colname.Controlname] == 'NaN') {
+
+            this.translate.get(colname.Controlname).subscribe(value => {
+              message.error(value + ' ,必须输入！');
+            });
+            isok = false;
+            return isok;
+          }
+        }
+
       }
     }
     return isok;
