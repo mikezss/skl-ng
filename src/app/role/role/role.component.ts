@@ -18,7 +18,7 @@ import {NzTreeComponent, NzTreeNode} from 'ng-zorro-antd';
   styleUrls: ['./role.component.css']
 })
 export class RoleComponent implements OnInit {
-  @ViewChild('nzTreerole') nzTreerole: NzTreeComponent;
+  @ViewChild('nzTreerole', { static: true }) nzTreerole: NzTreeComponent;
   allusers: any[] = [];
   selectedkey = '';
   authorizationtabtitle = 'please select role to authorization';

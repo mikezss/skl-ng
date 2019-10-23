@@ -27,7 +27,7 @@ import {ComponentPortal, Portal, TemplatePortal} from '@angular/cdk/portal';
   styleUrls: ['./task-trace.component.css']
 })
 export class TaskTraceComponent implements OnInit {
-  @ViewChild('print') printComponent: EssenceNg2PrintComponent;
+  @ViewChild('print', { static: false }) printComponent: EssenceNg2PrintComponent;
   printCSS: string[];
   printStyle: string;
   printBtnBoolean = true;

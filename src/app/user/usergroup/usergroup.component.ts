@@ -19,7 +19,7 @@ import {NzTreeComponent, NzTreeNode} from 'ng-zorro-antd';
   styleUrls: ['./usergroup.component.css']
 })
 export class UsergroupComponent implements OnInit {
-  @ViewChild('nzTree') nzTree: NzTreeComponent;
+  @ViewChild('nzTree', { static: true }) nzTree: NzTreeComponent;
   allusers: any[] = [];
   selectedkey = '';
   usergroupmanagementtitle = 'please select group';

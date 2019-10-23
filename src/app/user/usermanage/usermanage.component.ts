@@ -23,7 +23,7 @@ import {NzTreeComponent, NzTreeNode} from 'ng-zorro-antd';
 export class UsermanageComponent implements OnInit {
   mode = 'a';
   tabindex: any = 0;
-  @ViewChild('nzTree') nzTree: NzTreeComponent;
+  @ViewChild('nzTree', { static: true }) nzTree: NzTreeComponent;
   selectedkey = '';
   searchValue = '';
   authorizationtabtitle = 'please select user to authorization';

@@ -8,7 +8,7 @@ import {DomSanitizer, SafeResourceUrl} from '@angular/platform-browser';
   styleUrls: ['./portal.component.css']
 })
 export class PortalComponent implements OnInit {
-  @ViewChild('templatePortalContent') templatePortalContent: TemplateRef<any>;
+  @ViewChild('templatePortalContent', { static: true }) templatePortalContent: TemplateRef<any>;
   selectedPortal: Portal<any>;
   selectedPortal2: Portal<any>;
   href: SafeResourceUrl;
