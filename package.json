@@ -31,7 +31,7 @@
     "essence-ng2-print": "^1.1.0",
     "hammerjs": "^2.0.8",
     "ng-zorro-antd": "^8.4.0",
-    "ng2-ckeditor": "^1.2.2",
+    "ng2-ckeditor": "^1.2.6",
     "ngx-store": "^2.1.0",
     "rxjs": "^6.5.3",
     "rxjs-compat": "6.0.0",
