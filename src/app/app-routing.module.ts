@@ -9,7 +9,8 @@ const routes: Routes = [
   {path: '', redirectTo: 'login', pathMatch: 'full'},
   {
     path: 'home',
-    loadChildren: () => import('./home/home.module').then(m => m.HomeModule),
+    // loadChildren: () => import('./home/home.module').then(m => m.HomeModule),
+    loadChildren: './home/home.module#HomeModule',
     // canLoad: [AuthGuard]
   },
   {path: 'login', component: LoginComponent}
