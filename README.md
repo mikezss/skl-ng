@@ -34,10 +34,10 @@
 * input user/password: devzss/666666  
 
 ## Sample
-* ![表单样例](https://github.com/mikezss/skl-ng/samples/form.png)  
-* ![列表样例](https://github.com/mikezss/skl-ng/samples/list.png) 
-* ![列表样例2](https://github.com/mikezss/skl-ng/samples/list2.png) 
-* ![树样例](https://github.com/mikezss/skl-ng/samples/tree.png) 
+* ![表单样例](./samples/form.png)  
+* ![列表样例](./samples/list.png) 
+* ![列表样例2](./samples/list2.png) 
+* ![树样例](./samples/tree.png) 
 
 ## License  
 * MIT  
