@@ -33,7 +33,7 @@
 * open url(http://localhost:4200/) in browser(chrome/firefox and so on)  
 * input user/password: devzss/666666  
 
-##Sample
+## Sample
 * ![表单样例](https://github.com/mikezss/skl-ng/samples/form.png)  
 * ![列表样例](https://github.com/mikezss/skl-ng/samples/list.png) 
 * ![列表样例2](https://github.com/mikezss/skl-ng/samples/list2.png) 
