@@ -5,11 +5,11 @@
       <nz-button-group>
         <button *ngFor="let button of buttons" nz-button [nzType]="'primary'" (click)="doAction(button.name)">
           <ng-container [ngSwitch]="button.name">
-            <i *ngSwitchCase="'query'" nz-icon [type]="'search'"  ></i>
-            <i *ngSwitchCase="'reset'"   nz-icon [type]="'reload'"></i>
-            <i *ngSwitchCase="'pass'"  nz-icon [type]="'next'" ></i>
-            <i *ngSwitchCase="'return'"  nz-icon [type]="'back'" ></i>
-            <i *ngSwitchDefault   nz-icon type="{{button.icon}}" ></i>
+            <i *ngSwitchCase="'query'" nz-icon [nzType]="'search'"  ></i>
+            <i *ngSwitchCase="'reset'"   nz-icon [nzType]="'reload'"></i>
+            <i *ngSwitchCase="'pass'"  nz-icon [nzType]="'next'" ></i>
+            <i *ngSwitchCase="'return'"  nz-icon [nzType]="'back'" ></i>
+            <i *ngSwitchDefault   nz-icon nzType="{{button.icon}}" ></i>
           </ng-container>
           <ng-container>{{button.name|translate}}</ng-container>
         </button>

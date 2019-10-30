@@ -3,16 +3,16 @@
     <ng-container *ngIf="mode=='a'">
       <nz-button-group>
         <button *ngIf="listtype=='sgltbl'" nz-button [nzType]="'primary'" (click)="append()">
-          <i nz-icon [type]="'plus'"></i>
+          <i nz-icon [nzType]="'plus'"></i>
           <ng-container>{{'append'|translate}}</ng-container>
         </button>
         <button *ngIf="listtype=='sgltbl'" nz-button [nzType]="'primary'" (click)="move()">
-          <i nz-icon [type]="'minus'"></i>
+          <i nz-icon [nzType]="'minus'"></i>
           <ng-container>{{'remove'|translate}}</ng-container>
         </button>
         <ng-container *ngFor="let button of buttons">
           <button nz-button [nzType]="'primary'" (click)="doAction(button.name)">
-            <i nz-icon type="{{button.icon}}" ></i>
+            <i nz-icon nzType="{{button.icon}}" ></i>
             <ng-container>{{button.name|translate}}</ng-container>
           </button>
         </ng-container>
@@ -122,7 +122,7 @@
             <input *ngSwitchDefault [(ngModel)]="data[colname.Controlname]" nz-input
                    (input)="onInput(data,colname.Controlname)" [disabled]="colname.NotEditable?true:false"
                    (ngModelChange)="listdataonchange(data,colname.Controlname)">
-            <ng-container *ngSwitchCase="'icon'"><i nz-icon [type]="colname.icon" [theme]="'fill'"></i></ng-container>
+            <ng-container *ngSwitchCase="'icon'"><i nz-icon [nzType]="colname.icon" [theme]="'fill'"></i></ng-container>
           </ng-container>
 
         </ng-container>
